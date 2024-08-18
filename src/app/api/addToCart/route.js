@@ -1,4 +1,5 @@
 import { storefront } from "../../../../utilis";
+import { NextResponse } from "next/server";
 
 // Definizione della mutation GraphQL
 export const addToCartMutation = `
@@ -28,9 +29,9 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
   }
 }`;
 
-export default async function handler(req, res) {
+export async function POST(request) {
   try {
-    const { cartId, variantId } = JSON.parse(req.body);
+    const { cartId, variantId } = await request.json();
 
     // Debug degli ID estratti
     console.log("Cart ID estratto:", cartId);
@@ -41,9 +42,9 @@ export default async function handler(req, res) {
       variables: { cartId, variantId },
     });
 
-    return { data };
+    return NextResponse.json(data);
   } catch (error) {
     console.error("Error adding product to cart:", error);
-    res.status(400).json({ error: error.message });
+    return NextResponse.json({ error: error.message }, { status: 400 });
   }
 }
