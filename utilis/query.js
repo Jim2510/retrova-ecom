@@ -24,3 +24,52 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
     }
   }
 }`;
+
+export const createCart = `mutation createCart {
+    cartCreate {
+        cart {
+            checkoutUrl
+            id
+        }
+    }
+}`;
+
+export const loadCart = `
+query GetCart( $cartId: ID!) {
+    cart(id: $cartId) {
+        checkoutUrl
+    estimatedCost {
+      totalAmount {
+        amount
+      }
+    }
+    lines(first: 100) {
+      edges {
+        node {
+          quantity
+          estimatedCost {
+            amount {
+              amount
+              currencyCode
+            }
+          }
+          merchandise {
+            ... on ProductVariant {
+              id
+              title
+              product {
+                title
+                priceRange {
+                  minVariantPrice {
+                    amount
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;

@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { createCart } from "../../api/createCart/route";
 import { storefront } from "../../../../utilis";
-import { loadCart } from "../../api/loadCart/route";
 import bin from "../../../../public/icons/bin.png";
 import Image from "next/image";
+import { createCart, loadCart } from "../../../../utilis/query";
 
 export default function Cart({ isOpen, setIsOpen }) {
   const [cart, setCart] = useState({ id: null, lines: [] });
