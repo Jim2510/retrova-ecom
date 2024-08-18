@@ -28,7 +28,7 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
   }
 }`;
 
-export default async function handlerAdd(req, res) {
+export default async function handler(req, res) {
   try {
     const { cartId, variantId } = JSON.parse(req.body);
 
@@ -41,7 +41,7 @@ export default async function handlerAdd(req, res) {
       variables: { cartId, variantId },
     });
 
-    res.status(200).json(data);
+    return { data };
   } catch (error) {
     console.error("Error adding product to cart:", error);
     res.status(400).json({ error: error.message });

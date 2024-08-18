@@ -40,7 +40,7 @@ query GetCart( $cartId: ID!) {
 }
 `;
 
-export default async function handlerLoad(e) {
+export default async function handler(e) {
   try {
     let { cartId } = e.queryStringParameters;
 
