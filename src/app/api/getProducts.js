@@ -52,39 +52,20 @@ export const productsQuery = `query Products {
           edges {
             node {
               title
-              handle
-              priceRange {
-                minVariantPrice {
-                  amount
-                }
-              }
-              images(first: 10) {
-                edges {
-                  node {
-                    url
-                    altText
-                  }
-                }
-              }
-              variants(first: 10) {
-                edges {
-                  node {
-                    id
-                    image {
-                      url
-                      altText
-                    }
-                    title
-                    product {
-                      priceRange {
-                        minVariantPrice {
-                          amount
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+        handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+        images(first: 10) {
+          edges {
+            node {
+              url
+              altText
+            }
+          }
+        }
             }
           }
         }

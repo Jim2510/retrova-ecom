@@ -15,6 +15,13 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
                 id
                 product {
                   title
+                  images(first: 1) {
+                    edges {
+                      node {
+                        url
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -59,6 +66,13 @@ query GetCart( $cartId: ID!) {
               title
               product {
                 title
+                images(first: 1) {
+                    edges {
+                      node {
+                        url
+                      }
+                    }
+                  }
                 priceRange {
                   minVariantPrice {
                     amount

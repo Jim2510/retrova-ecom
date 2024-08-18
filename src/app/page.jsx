@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </InfiniteScRev>
       <CategoryCont />
-      <Cart isOpen={isOpen} toggleOpen={toggleOpen} />
+      <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
         <div className="flex gap-10">
           NEW ARRIVALS{" "}

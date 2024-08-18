@@ -81,7 +81,7 @@ export default function Cart({ isOpen, setIsOpen }) {
       <div className="py-4 flex justify-center items-center h-fit w-full text-sm font-bold border-b-2 border-black">
         <h3>SHOPPING CART</h3>
       </div>
-      <div className="w-full h-[150px] pb-4 flex flex-col overflow-auto">
+      <div className="w-full pb-4 flex flex-col overflow-auto">
         {cart &&
           cart.lines.map((el, index) => {
             return (
@@ -97,16 +97,30 @@ export default function Cart({ isOpen, setIsOpen }) {
                     +
                   </button>
                 </div>
+                <div className="pl-14">
+                  <Image
+                    src={el.node.merchandise.product.images.edges[0].node.url}
+                    alt="productCart"
+                    width={100}
+                    height={70}
+                  />
+                </div>
                 <div className="w-full text-center px-2">
                   {el.node.merchandise.product.title} -{" "}
                   {el.node.merchandise.title}
                 </div>
-                <button className="" onClick={emptyCart}>
-                  <Image src={bin} alt="bin" width={25} height={25} />
-                </button>
               </div>
             );
           })}
+        <button
+          className="flex justify-center items-center group absolute bottom-5 right-4"
+          onClick={emptyCart}
+        >
+          <Image src={bin} alt="bin" width={25} height={25} />
+          <p className="text-center justify-center items-center group-hover:flex hidden absolute -top-6 w-[60px] mr-[14px] bg-white h-[20px] border-2 rounded-2xl right-0 translate-x-1/2 text-xs font-semibold">
+            CLEAR
+          </p>
+        </button>
       </div>
       <div className="w-full p-4">
         {/* {checkoutUrl && (
