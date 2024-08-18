@@ -72,7 +72,7 @@ export default function Prods() {
         <NavSocial scrollY={scrollY} />
         <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
         <NavSort scrollY={scrollY} />
-        <Cart isOpen={isOpen} toggleOpen={toggleOpen} />
+        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
         <InfiniteScroll
           className="mt-[200px]"
           dataLength={items.length}

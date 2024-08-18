@@ -89,8 +89,8 @@ export default function ProductDetails() {
   };
 
   const handleSelectChange = (event) => {
-    setId(event.target.value.stringify()); // Aggiorna lo stato `id` con il valore selezionato
-    console.log("Selected ID:", event.target.value.stringify()); // Mostra l'ID selezionato
+    setId(event.target.value); // Aggiorna lo stato `id` con il valore selezionato
+    console.log("Selected ID:", event.target.value); // Mostra l'ID selezionato
   };
 
   const addProduct = async () => {
