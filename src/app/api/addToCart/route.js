@@ -1,33 +1,8 @@
 import { storefront } from "../../../../utilis";
 import { NextResponse } from "next/server";
+import { addToCartMutation } from "../../../../utilis/query";
 
 // La mutation GraphQL direttamente all'interno della funzione POST
-const addToCartMutation = `
-mutation AddToCart($cartId: ID!, $variantId: ID!) {
-  cartLinesAdd(
-    cartId: $cartId,
-    lines: {merchandiseId: $variantId, quantity: 1}
-  ) {
-    cart {
-      lines(first: 100) {
-        edges {
-          node {
-            id
-            quantity
-            merchandise {
-              ... on ProductVariant {
-                id
-                product {
-                  title
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
 
 export async function POST(request) {
   try {

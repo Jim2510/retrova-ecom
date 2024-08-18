@@ -13,8 +13,7 @@ import { storefront } from "../../../../utilis";
 import { productsQuery } from "../../api/getProducts";
 import left from "../../../../public/icons/left-arrow.png";
 import right from "../../../../public/icons/right-arrow.png";
-import { useFetch } from "../../../app/fetch/add-to-cart";
-import { addToCart, addToCartMutation } from "../../api/addToCart/route";
+import { addToCartMutation } from "../../../../utilis/query";
 
 export default function ProductDetails() {
   const { productId } = useParams();
