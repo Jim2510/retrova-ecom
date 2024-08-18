@@ -49,4 +49,4 @@ export async function POST(request) {
   }
 }
 
-export default addToCartMutation;
+export default { addToCartMutation };
