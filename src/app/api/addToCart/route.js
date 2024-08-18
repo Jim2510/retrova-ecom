@@ -28,7 +28,7 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
   }
 }`;
 
-export default async function handler(req, res) {
+export default async function handlerAdd(req, res) {
   try {
     const { cartId, variantId } = JSON.parse(req.body);
 

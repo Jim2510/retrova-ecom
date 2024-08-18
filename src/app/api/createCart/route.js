@@ -9,7 +9,7 @@ export const createCart = `mutation createCart {
     }
 }`;
 
-export default async function handler() {
+export default async function handlerCreate() {
   const { data } = await storefront(createCart);
   return { data };
 }
