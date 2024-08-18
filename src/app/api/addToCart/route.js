@@ -1,8 +1,8 @@
 import { storefront } from "../../../../utilis";
 import { NextResponse } from "next/server";
 
-// Definizione della mutation GraphQL
-export const addToCartMutation = `
+// La mutation GraphQL direttamente all'interno della funzione POST
+const addToCartMutation = `
 mutation AddToCart($cartId: ID!, $variantId: ID!) {
   cartLinesAdd(
     cartId: $cartId,
