@@ -14,6 +14,7 @@ import { productsQuery } from "../../api/getProducts";
 import left from "../../../../public/icons/left-arrow.png";
 import right from "../../../../public/icons/right-arrow.png";
 import { addToCartMutation } from "../../../../utilis/query";
+import { exit } from "process";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -73,18 +74,14 @@ export default function ProductDetails() {
   };
 
   const nextImg = () => {
-    if (image < 9) {
+    if (prods && image < prods.node.images.edges.length - 1) {
       setImage(image + 1);
-    } else {
-      setImage(0);
     }
   };
 
   const prevImg = () => {
     if (image > 0) {
       setImage(image - 1);
-    } else {
-      setImage(0);
     }
   };
 
@@ -94,6 +91,8 @@ export default function ProductDetails() {
   };
 
   const addProduct = async () => {
+    setIsOpen(true);
+
     let localCartData = JSON.parse(
       window.localStorage.getItem("retrovaconf:shopify:cart")
     );
@@ -141,7 +140,7 @@ export default function ProductDetails() {
               src={prods ? prods.node.images.edges[image].node.url : ""}
               width={500}
               height={350}
-              className="mb-2 w-full object-cover relative top-0 h-full"
+              className="mb-2 w-full object-contain relative top-0 h-full"
               alt="product"
             />
             <Image

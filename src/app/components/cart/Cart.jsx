@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 import { storefront } from "../../../../utilis";
 import bin from "../../../../public/icons/bin.png";
 import Image from "next/image";
@@ -112,20 +112,12 @@ export default function Cart({ isOpen, setIsOpen }) {
                     width={130}
                     height={100}
                   />
-                  <div className="flex absolute bottom-0 bg-white">
-                    <button className=" px-2 border-2 border-black rounded-l-2xl font-semibold">
-                      -
-                    </button>
-                    <p className="font-semibold text-black px-2 border-2 border-black">
-                      {el.node.quantity}
-                    </p>
-                    <button className=" px-2 border-2 border-black rounded-r-2xl font-semibold">
-                      +
-                    </button>
+                  <div className="absolute rounded-full w-6 h-6 bottom-0 right-0 text-white font-semibold bg-black flex justify-center items-center">
+                    <p>{el.node.quantity}</p>
                   </div>
                 </div>
 
-                <div className="w-full text-start flex justify-center items-center sm:flex-row flex-col pr-2 sm:pl-24 text-xs">
+                <div className="w-full text-start flex justify-center items-center flex-col pr-2 text-xs">
                   {el.node.merchandise.product.title} - <br />
                   <span className="font-semibold">
                     {el.node.merchandise.title}
@@ -148,9 +140,18 @@ export default function Cart({ isOpen, setIsOpen }) {
         ) : (
           <>
             <div className="w-full h-fit text-end font-semibold px-10 flex gap-14 justify-center items-center sm:text-base text-xs">
-              <button className="w-[60%] rounded-2xl border-2 border-black py-1 sm:text-base text-xs sm:px-0 px-2">
+              <motion.button
+                initial={{ scale: 1, backgroundColor: "#ffff", color: "#000" }} // Stato iniziale
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#000",
+                  color: "#fff",
+                }} // Stato durante l'hover
+                transition={{ duration: 0.3 }} // Durata dell'animazione
+                className="w-[60%] rounded-2xl border-2 border-black py-1 sm:text-base text-xs sm:px-0 px-2"
+              >
                 CHECKOUT
-              </button>
+              </motion.button>
               TOTAL {cart.estimatedCost}
             </div>
             <button
