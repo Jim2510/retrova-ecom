@@ -117,7 +117,7 @@ export default function Cart({ isOpen, setIsOpen }) {
                   </div>
                 </div>
 
-                <div className="w-full text-start flex justify-center items-center flex-col pr-2 text-xs">
+                <div className="w-full text-center sm:text-start flex justify-center items-center flex-col pr-2 text-xs">
                   {el.node.merchandise.product.title} - <br />
                   <span className="font-semibold">
                     {el.node.merchandise.title}
