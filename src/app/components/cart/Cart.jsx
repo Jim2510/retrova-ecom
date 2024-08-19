@@ -20,12 +20,13 @@ export default function Cart({ isOpen, setIsOpen }) {
         let data = JSON.parse(
           window.localStorage.getItem("retrovaconf:shopify:cart")
         );
-        console.log(data);
+        console.log("LocalStorage cart data:", data);
+
         if (data) {
           const existingCart = await storefront(loadCart, {
             cartId: data.data.cartCreate.cart.id,
           });
-          console.log(existingCart);
+          console.log("Fetched cart from Shopify:", existingCart);
 
           setCart({
             id: data.data.cartCreate.cart.id,
@@ -35,12 +36,12 @@ export default function Cart({ isOpen, setIsOpen }) {
             lines: existingCart.data.cart.lines.edges,
           });
 
-          console.log(cart);
-
           return;
         }
 
         data = await storefront(createCart);
+        console.log("Newly created cart data:", data);
+
         setCart({
           id: data.id,
           checkoutUrl: data.checkoutUrl,
@@ -52,18 +53,32 @@ export default function Cart({ isOpen, setIsOpen }) {
           "retrovaconf:shopify:cart",
           JSON.stringify(data)
         );
-        console.log(cart);
       } catch (error) {
         console.error("Error fetching cart items:", error);
       }
     };
     fetchCart();
+
+    const interval = setInterval(() => {
+      const state = window.localStorage.getItem("retrovaconf:shopify:status");
+      if (state && state === "dirty") {
+        fetchCart();
+        window.localStorage.setItem("retrovaconf:shopify:status", "clean");
+      }
+    }, 500);
+
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
 
   const emptyCart = () => {
+    console.log("Emptying cart");
     window.localStorage.removeItem("retrovaconf:shopify:cart");
+    setCart({ id: null, lines: [] }); // Resetta lo stato del carrello
+    console.log("Cart state after emptying:", cart);
   };
-  console.log(cart.lines);
+  console.log(cart);
 
   return (
     <motion.div
@@ -84,53 +99,71 @@ export default function Cart({ isOpen, setIsOpen }) {
       <div className="w-full pb-4 flex flex-col overflow-auto">
         {cart &&
           cart.lines.map((el, index) => {
+            console.log(el.node.merchandise.id);
             return (
-              <div key={index} className="w-full px-10 py-10 flex items-center">
-                <div className="flex">
-                  <button className=" px-2 border-2 border-black rounded-l-2xl font-semibold">
-                    -
-                  </button>
-                  <p className="font-semibold text-black px-2 border-2 border-black">
-                    {el.node.quantity}
-                  </p>
-                  <button className=" px-2 border-2 border-black rounded-r-2xl font-semibold">
-                    +
-                  </button>
-                </div>
-                <div className="pl-14">
+              <div
+                key={index}
+                className="w-full px-2 sm:px-10 py-8 flex items-center text-xs"
+              >
+                <div className="px-2 relative flex flex-col justify-center items-center">
                   <Image
                     src={el.node.merchandise.product.images.edges[0].node.url}
                     alt="productCart"
-                    width={100}
-                    height={70}
+                    width={130}
+                    height={100}
                   />
+                  <div className="flex absolute bottom-0 bg-white">
+                    <button className=" px-2 border-2 border-black rounded-l-2xl font-semibold">
+                      -
+                    </button>
+                    <p className="font-semibold text-black px-2 border-2 border-black">
+                      {el.node.quantity}
+                    </p>
+                    <button className=" px-2 border-2 border-black rounded-r-2xl font-semibold">
+                      +
+                    </button>
+                  </div>
                 </div>
-                <div className="w-full text-center px-2">
-                  {el.node.merchandise.product.title} -{" "}
-                  {el.node.merchandise.title}
+
+                <div className="w-full text-start flex justify-center items-center sm:flex-row flex-col pr-2 sm:pl-24 text-xs">
+                  {el.node.merchandise.product.title} - <br />
+                  <span className="font-semibold">
+                    {el.node.merchandise.title}
+                  </span>
+                </div>
+                <div className="px-2 font-bold text-nowrap">
+                  {el.node.estimatedCost.amount.amount}{" "}
+                  {el.node.estimatedCost.amount.currencyCode}
                 </div>
               </div>
             );
           })}
-        <button
-          className="flex justify-center items-center group absolute bottom-5 right-4"
-          onClick={emptyCart}
-        >
-          <Image src={bin} alt="bin" width={25} height={25} />
-          <p className="text-center justify-center items-center group-hover:flex hidden absolute -top-6 w-[60px] mr-[14px] bg-white h-[20px] border-2 rounded-2xl right-0 translate-x-1/2 text-xs font-semibold">
-            CLEAR
-          </p>
-        </button>
-      </div>
-      <div className="w-full p-4">
-        {/* {checkoutUrl && (
-          <a
-            href={checkoutUrl}
-            className="bg-black text-white w-full py-2 px-4 text-center rounded-lg block"
-          >
-            Proceed to Checkout
-          </a>
-        )} */}
+        {cart.lines.length === 0 ? (
+          <div className="w-full h-fit text-center font-semibold px-10 text-xs">
+            <h3>
+              Your cart is empty. <br />
+              Start adding some merchandise!
+            </h3>
+          </div>
+        ) : (
+          <>
+            <div className="w-full h-fit text-end font-semibold px-10 flex gap-14 justify-center items-center sm:text-base text-xs">
+              <button className="w-[60%] rounded-2xl border-2 border-black py-1 sm:text-base text-xs sm:px-0 px-2">
+                CHECKOUT
+              </button>
+              TOTAL {cart.estimatedCost}
+            </div>
+            <button
+              className="flex justify-center items-center group absolute bottom-5 right-4"
+              onClick={emptyCart}
+            >
+              <Image src={bin} alt="bin" width={25} height={25} />
+              <p className="text-center justify-center items-center group-hover:flex hidden absolute -top-6 w-[60px] mr-[14px] bg-white h-[20px] border-2 rounded-2xl right-0 translate-x-1/2 text-xs font-semibold">
+                CLEAR
+              </p>
+            </button>
+          </>
+        )}
       </div>
     </motion.div>
   );

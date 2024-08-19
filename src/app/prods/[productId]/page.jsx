@@ -123,7 +123,7 @@ export default function ProductDetails() {
       } else {
         console.error("Unexpected response structure:", result);
       }
-
+      window.localStorage.setItem("retrovaconf:shopify:status", "dirty");
       return result;
     } catch (error) {
       console.error("Error during addProduct:", error);
