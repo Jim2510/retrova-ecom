@@ -87,3 +87,26 @@ query GetCart( $cartId: ID!) {
   }
 }
 `;
+
+export const searchByName = ` query searchProducts($title: String!) {
+  products(first: 10, query: $title) {
+    edges {
+      cursor
+      node {
+        id
+        title
+        handle
+        descriptionHtml
+        images(first: 1) {
+          edges {
+            node {
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
