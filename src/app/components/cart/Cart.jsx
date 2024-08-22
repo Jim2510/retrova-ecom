@@ -82,10 +82,10 @@ export default function Cart({ isOpen, setIsOpen }) {
 
   return (
     <motion.div
-      className="fixed right-0 h-[99%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white rounded-xl shadow-2xl flex flex-col"
+      className="fixed right-0 h-[100%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white  shadow-2xl flex flex-col"
       initial={{ x: "100%" }}
       animate={{ x: isOpen ? 0 : "100%" }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.4 }}
     >
       <button
         onClick={toggleOpen}

@@ -114,7 +114,7 @@ export default function Crl() {
         )}
       </AnimatePresence>
 
-      <div className="w-full h-screen relative overflow-hidden">
+      <div className="w-full h-screen relative overflow-hidden sm:mt-[7.5rem]">
         <motion.div
           className="absolute inset-0 flex"
           style={{ width: "100%", height: "100%" }}
@@ -126,7 +126,10 @@ export default function Crl() {
           onDragEnd={handleDragEnd}
         >
           {images.map((image, index) => (
-            <div className="w-full h-full flex-shrink-0 relative" key={index}>
+            <div
+              className="w-full h-full flex-shrink-0 relative px-10"
+              key={index}
+            >
               <Image
                 src={image}
                 alt={`Slide ${index}`}

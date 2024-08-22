@@ -53,7 +53,7 @@ export default function Home() {
       <NavSocial scrollY={scrollY} />
       <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
       <Crl />
-      <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
+      {/* <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex gap-10">
           COLLECTIONS{" "}
           <Image
@@ -64,7 +64,7 @@ export default function Home() {
             className="sm:ml-5 -ml-3"
           />
         </div>
-      </InfiniteScRev>
+      </InfiniteScRev> */}
       <OurMission />
       <InfiniteSc>
         <div className="flex gap-10">

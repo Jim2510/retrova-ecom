@@ -107,7 +107,7 @@ export default function Navbar({ toggleOpen, scrollY }) {
   return (
     <motion.nav
       initial={{ y: 0 }}
-      animate={{ y: isSticky ? -0 : 43 }}
+      animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
       className={`z-[15] top-0 w-full bg-transparent sm:bg-white grid grid-cols-2 sm:grid-cols-3 justify-between sm:justify-start items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
