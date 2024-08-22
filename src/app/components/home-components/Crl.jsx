@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import b1 from "../../../../public/images/1.png";
 import b2 from "../../../../public/images/2.png";
@@ -9,7 +9,6 @@ import b3 from "../../../../public/images/3.png";
 import b1r from "../../../../public/images/1r.png";
 import b2r from "../../../../public/images/2r.png";
 import b3r from "../../../../public/images/3r.png";
-import { AnimatePresence } from "framer-motion";
 
 const desktopImages = [b1, b2, b3];
 const mobileImages = [b1r, b2r, b3r];
@@ -21,22 +20,17 @@ export default function Crl() {
   const [images, setImages] = useState(desktopImages);
 
   useEffect(() => {
-    // Funzione per aggiornare le immagini in base alla dimensione dello schermo
     const handleResize = () => {
       if (window.innerWidth <= 768) {
-        // Adatta questo valore per il breakpoint mobile
         setImages(mobileImages);
       } else {
         setImages(desktopImages);
       }
     };
 
-    // Aggiungi listener per il resize
     window.addEventListener("resize", handleResize);
-    // Imposta le immagini iniziali
     handleResize();
 
-    // Pulisci il listener quando il componente viene smontato
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -61,11 +55,25 @@ export default function Crl() {
     }
   };
 
-  const handlePan = (event, info) => {
-    if (info.offset.x < -50) {
-      nextSlide();
-    } else if (info.offset.x > 50) {
-      prevSlide();
+  const handleDragEnd = (event, info) => {
+    const swipeThreshold = 50; // Soglia di swipe
+    const velocityThreshold = 0.2; // Velocità di swipe per decidere la transizione
+
+    if (
+      Math.abs(info.offset.x) > swipeThreshold ||
+      Math.abs(info.velocity.x) > velocityThreshold
+    ) {
+      if (
+        info.offset.x < -swipeThreshold ||
+        info.velocity.x < -velocityThreshold
+      ) {
+        nextSlide();
+      } else if (
+        info.offset.x > swipeThreshold ||
+        info.velocity.x > velocityThreshold
+      ) {
+        prevSlide();
+      }
     }
   };
 
@@ -111,10 +119,11 @@ export default function Crl() {
           className="absolute inset-0 flex"
           style={{ width: "100%", height: "100%" }}
           animate={{ x: `-${currentIndex * 100}%` }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onPan={handlePan}
+          dragElastic={0.1}
+          dragMomentum={false}
+          onDragEnd={handleDragEnd}
         >
           {images.map((image, index) => (
             <div className="w-full h-full flex-shrink-0 relative" key={index}>
