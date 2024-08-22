@@ -15,23 +15,26 @@ const mobileImages = [b1r, b2r, b3r];
 
 export default function Crl() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   const [hideContainer, setHideContainer] = useState(false);
   const [images, setImages] = useState(desktopImages);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setImages(mobileImages);
-      } else {
-        setImages(desktopImages);
-      }
-    };
+    // Check sessionStorage to see if the video has been shown
+    const hasVideoBeenShown = sessionStorage.getItem("hasVideoBeenShown");
 
-    window.addEventListener("resize", handleResize);
-    handleResize();
+    if (hasVideoBeenShown) {
+      setIsVisible(false);
+      setHideContainer(true);
+    } else {
+      setIsVisible(true);
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+        sessionStorage.setItem("hasVideoBeenShown", "true");
+      }, 2000);
 
-    return () => window.removeEventListener("resize", handleResize);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const variants = {
@@ -45,10 +48,6 @@ export default function Crl() {
     },
   };
 
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
   const handleAnimationComplete = () => {
     if (!isVisible) {
       setHideContainer(true);
@@ -56,8 +55,8 @@ export default function Crl() {
   };
 
   const handleDragEnd = (event, info) => {
-    const swipeThreshold = 50; // Soglia di swipe
-    const velocityThreshold = 0.2; // Velocità di swipe per decidere la transizione
+    const swipeThreshold = 50;
+    const velocityThreshold = 0.2;
 
     if (
       Math.abs(info.offset.x) > swipeThreshold ||
@@ -97,7 +96,6 @@ export default function Crl() {
             initial="open"
             animate="open"
             exit="closed"
-            onClick={handleClose}
             onAnimationComplete={handleAnimationComplete}
           >
             <video
@@ -134,7 +132,7 @@ export default function Crl() {
                 src={image}
                 alt={`Slide ${index}`}
                 layout="fill"
-                objectFit="cover"
+                objectFit="fill"
               />
             </div>
           ))}
