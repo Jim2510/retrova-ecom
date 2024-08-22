@@ -51,7 +51,11 @@ export default function Home() {
     >
       <Newsletter />
       <NavSocial scrollY={scrollY} />
-      <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
+      <Navbar
+        toggleOpen={toggleOpen}
+        scrollY={scrollY}
+        bgNav={"bg-transparent"}
+      />
       <Crl />
       {/* <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex gap-10">

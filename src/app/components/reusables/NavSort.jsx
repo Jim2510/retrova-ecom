@@ -19,7 +19,7 @@ export default function NavSort({ scrollY }) {
         initial={{ y: -35 }}
         animate={{ y: isSticky ? 55 : 118 }}
         transition={{ duration: 0.5 }}
-        className={`w-full z-[10] h-[30px] -top-1 bg-tertiary flex justify-between items-center ${
+        className={`w-full z-[10] h-[30px]  bg-tertiary flex justify-between items-center ${
           isSticky ? "fixed" : "absolute"
         }`}
       >

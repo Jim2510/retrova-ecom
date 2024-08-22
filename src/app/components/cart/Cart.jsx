@@ -82,7 +82,7 @@ export default function Cart({ isOpen, setIsOpen }) {
 
   return (
     <motion.div
-      className="fixed right-0 h-[100%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white  shadow-2xl flex flex-col"
+      className="fixed right-0 h-[100%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white/50 backdrop-blur-3xl  shadow-2xl flex flex-col"
       initial={{ x: "100%" }}
       animate={{ x: isOpen ? 0 : "100%" }}
       transition={{ duration: 0.4 }}
@@ -117,9 +117,9 @@ export default function Cart({ isOpen, setIsOpen }) {
                   </div>
                 </div>
 
-                <div className="w-full text-center sm:text-start flex justify-center items-center flex-col pr-2 text-xs">
+                <div className="w-full text-center sm:font-normal font-bold sm:text-start flex justify-center items-center flex-col pr-2 text-xs">
                   {el.node.merchandise.product.title} - <br />
-                  <span className="font-semibold">
+                  <span className="sm:font-semibold font-bold">
                     {el.node.merchandise.title}
                   </span>
                 </div>
@@ -139,7 +139,7 @@ export default function Cart({ isOpen, setIsOpen }) {
           </div>
         ) : (
           <>
-            <div className="w-full h-fit text-end font-semibold px-10 flex gap-14 justify-center items-center sm:text-base text-xs">
+            <div className="w-full h-fit text-end font-extrabold sm:font-semibold px-10 flex gap-14 justify-center items-center sm:text-base text-xs">
               <motion.button
                 initial={{ scale: 1, backgroundColor: "#ffff", color: "#000" }} // Stato iniziale
                 whileHover={{

@@ -12,7 +12,7 @@ import Image from "next/image";
 import { loadCart, searchByName } from "../../../../utilis/query";
 import { storefront } from "../../../../utilis";
 
-export default function Navbar({ toggleOpen, scrollY }) {
+export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const btnArray = [
     { title: "HOME", url: "/" },
     { title: "PRODUCTS", url: "/prods" },
@@ -109,7 +109,7 @@ export default function Navbar({ toggleOpen, scrollY }) {
       initial={{ y: 0 }}
       animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
-      className={`z-[15] top-0 w-full bg-transparent sm:bg-white grid grid-cols-2 sm:grid-cols-3 justify-between sm:justify-start items-center fixed`}
+      className={`z-[15] top-0 w-full ${bgNav} sm:bg-white grid grid-cols-2 sm:grid-cols-3 justify-between sm:justify-start items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
     >
       <motion.div
@@ -118,7 +118,7 @@ export default function Navbar({ toggleOpen, scrollY }) {
         transition={{ duration: 0.4 }}
         className={`absolute w-full h-full z-[15] sm:mt-0 -mt-2 bg-white/20 backdrop-blur-3xl flex justify-center items-center`}
       >
-        <div className="absolute w-full flex justify-center items-center bg-white mt-20">
+        <div className="absolute w-full flex justify-center items-center bg-white mt-[4rem]">
           {searchResults?.data?.products?.edges?.length > 0 ? (
             <div className="search-results absolute -top-1 bg-white w-full text-sm flex justify-center sm:justify-between items-center flex-col">
               {searchResults.data.products.edges.map((el) => (
@@ -144,9 +144,21 @@ export default function Navbar({ toggleOpen, scrollY }) {
             </div>
           ) : (
             searchQuery.trim() && (
-              <p className="text-center font-semibold text-black">
-                No results found
-              </p>
+              <div className="flex justify-center items-center">
+                <p className=" mr-2 text-center font-semibold text-black">
+                  press
+                </p>
+                <Image
+                  src={search}
+                  alt="search"
+                  width={10}
+                  height={10}
+                  className=""
+                />
+                <p className="ml-2 text-center font-semibold text-black">
+                  to search
+                </p>
+              </div>
             )
           )}
         </div>
@@ -238,19 +250,25 @@ export default function Navbar({ toggleOpen, scrollY }) {
             initial={{ x: "-140%" }}
             animate={{ x: openMenu ? 0 : "-140%" }}
             transition={{ duration: 0.6 }}
-            className={`left-0 absolute w-screen translate-y-1/2 -top-[15px] h-[30vh] ${
-              isSticky ? "mt-[70px]" : "mt-[85px]"
-            }  grid grid-rows-4 bg-white/20 backdrop-blur-3xl`}
+            className={`left-0 absolute w-[30%] translate-y-1/2 -top-[85px] h-[30vh] ${
+              isSticky ? "mt-[80px]" : "mt-[85px]"
+            }  grid grid-rows-5 bg-white/50 backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
                 href={btn.url}
                 key={index}
-                className="w-full text-center border-b-[1px] border-black/40 font-bold flex justify-center items-center"
+                className="w-full text-center border-b-[1px] border-black/40 text-sm font-extrabold flex justify-center items-center"
               >
                 {btn.title}
               </Link>
             ))}
+            <Link
+              href="/user"
+              className="w-full text-center border-b-[1px] border-black/40 text-sm font-extrabold flex justify-center items-center"
+            >
+              USER
+            </Link>
           </motion.div>
         </div>
         <div

@@ -42,6 +42,7 @@ export default function Ftr() {
           <div className="py-4 flex flex-col sm:gap-7 gap-4 underline underline-offset-[2px]">
             <Link href="/info/faqs">FAQs</Link>
             <Link href="/info/terms">Terms</Link>
+            <Link href="/info/paymentOptions">Payment options</Link>
             <Link href="/info/contacts">Contact Us</Link>
           </div>
         </div>
@@ -50,6 +51,7 @@ export default function Ftr() {
           <div className="py-4 flex flex-col sm:gap-7 gap-4 underline underline-offset-[2px]">
             <Link href="/info/withdrawal">Withdrawal policy</Link>
             <Link href="/info/warranty">Legal warranty</Link>
+            <Link href="/info/shipping&duties">Shipping&Duties</Link>
             <Link href="/info/privacy">Privacy policy</Link>
           </div>
         </div>

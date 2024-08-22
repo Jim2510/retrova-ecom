@@ -70,7 +70,7 @@ export default function Prods() {
     <>
       <div className="w-full flex flex-col gap-20">
         <NavSocial scrollY={scrollY} />
-        <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
+        <Navbar toggleOpen={toggleOpen} scrollY={scrollY} bgNav={"bg-white"} />
         <NavSort scrollY={scrollY} />
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
         <InfiniteScroll
