@@ -83,7 +83,7 @@ export default function Home() {
         <div className="flex gap-10">SALES</div>
       </InfiniteSc>
       <CategoryCont />
-      <Chatbot />
+      {/* <Chatbot /> */}
       <Ftr />
     </main>
   );
