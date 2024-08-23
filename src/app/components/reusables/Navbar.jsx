@@ -123,7 +123,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             <div className="search-results absolute -top-1 bg-white w-full text-sm flex justify-center sm:justify-between items-center flex-col">
               {searchResults.data.products.edges.map((el) => (
                 <Link
-                  href={`/prods/${el.node.id}`}
+                  href={`/prods/${encodeURIComponent(el.node.id)}`}
                   key={el.node.id}
                   className="w-[400px] px-10"
                 >

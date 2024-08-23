@@ -78,10 +78,9 @@ export default function OurMission() {
               viewport={{ once: true }}
               className="order-1 sm:order-2 flex justify-center items-center p-20 text-center sm:h-full h-[500px]"
             >
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wider text-slate-800">
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wider text-slate-800 elegantshadow">
                 ALL OF OUR PRODUCTS ARE DESIGNED TO MEET THE HIGHEST
-                SUSTAINABILITY STANDARDS, ENSURING ENVIRONMENTAL RESPONSIBILITY
-                AND ECO-FRIENDLINESS.
+                SUSTAINABILITY STANDARDS
               </h2>
             </motion.div>
           </div>

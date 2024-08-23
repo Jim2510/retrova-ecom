@@ -19,7 +19,7 @@ export default function Ftr() {
           <h3 className="font-semibold tracking-widest  sm:tracking-[1rem] text-base sm:text-xl">
             RETROVA
           </h3>
-          <div className="w-full py-2 h-full bg-white my-4 flex flex-col justify-center items-center rounded-2xl shadow-2xl">
+          <div className="w-full py-2 h-full bg-white my-4 flex flex-col justify-center items-center shadow-2xl">
             <h2 className="w-full text-center pb-4 text-xs sm:text-sm tracking-normal font-semibold">
               ISCRIVITI ALLA NEWSLETTER
             </h2>

@@ -71,43 +71,16 @@ export default function Home() {
       </InfiniteScRev> */}
       <OurMission />
       <InfiniteSc>
-        <div className="flex gap-10">
-          SALES{" "}
-          <Image
-            src={diamond}
-            alt="diamond"
-            width={55}
-            height={30}
-            className="sm:ml-5 -ml-3"
-          />
-        </div>
+        <div className="flex gap-10">NEW</div>
       </InfiniteSc>
       <CategoryCont />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
-        <div className="flex gap-10">
-          OFFERS{" "}
-          <Image
-            src={diamond}
-            alt="diamond"
-            width={55}
-            height={30}
-            className="sm:ml-5 -ml-3"
-          />
-        </div>
+        <div className="flex gap-10">OFFERS</div>
       </InfiniteScRev>
       <CategoryCont />
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
-        <div className="flex gap-10">
-          NEW ARRIVALS{" "}
-          <Image
-            src={diamond}
-            alt="diamond"
-            width={55}
-            height={30}
-            className="sm:ml-5 -ml-3"
-          />
-        </div>
+        <div className="flex gap-10">SALES</div>
       </InfiniteSc>
       <CategoryCont />
       <Chatbot />
