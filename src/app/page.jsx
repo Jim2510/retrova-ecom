@@ -7,18 +7,10 @@ import CategoryCont from "./components/home-components/CategoryCont";
 import InfiniteSc from "./components/home-components/InfiniteSc";
 import InfiniteScRev from "./components/home-components/InfiniteScRev";
 import Cart from "./components/cart/Cart";
-import InfiniteScNew from "./components/home-components/InfiniteScNew";
 import OurMission from "./components/home-components/OurMission";
 import Ftr from "./components/reusables/Ftr";
 import Newsletter from "./components/home-components/Newsletter";
-import Chatbot from "./components/chatbot/Chatbot";
 import { Montserrat } from "next/font/google";
-import Client from "shopify-buy";
-import useSWR from "swr";
-import { storefront } from "../../utilis";
-import { productsQuery } from "../app/api/getProducts";
-import diamond from "../../public/icons/diamond.png";
-import Image from "next/image";
 
 const plex = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
