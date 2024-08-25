@@ -6,7 +6,6 @@ import NavSocial from "../components/reusables/NavSocial";
 import InfiniteScroll from "react-infinite-scroll-component";
 import products from "../data/prods"; // Ensure this contains initial data
 import CardHome from "../components/home-components/CardHome";
-import NavSort from "../components/reusables/NavSort";
 import Cart from "../components/cart/Cart";
 import Ftr from "../components/reusables/Ftr";
 
@@ -55,7 +54,6 @@ export default function Offers() {
       <div className="w-full flex flex-col gap-20">
         <NavSocial scrollY={scrollY} />
         <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
-        <NavSort scrollY={scrollY} />
         <Cart isOpen={isOpen} toggleOpen={toggleOpen} />
         <InfiniteScroll
           className="mt-[200px]"

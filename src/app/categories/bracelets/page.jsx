@@ -9,7 +9,6 @@ import Navbar from "../../components/reusables/Navbar";
 import CardHome from "../../components/home-components/CardHome";
 import Ftr from "../../components/reusables/Ftr";
 import products from "../../data/prods";
-import NavSort from "../../components/reusables/NavSort";
 import Cart from "../../components/cart/Cart";
 
 // Simulate fetching more data
@@ -72,7 +71,6 @@ export default function Prods() {
       <div className="w-full flex flex-col gap-20">
         <NavSocial scrollY={scrollY} />
         <Navbar toggleOpen={toggleOpen} scrollY={scrollY} />
-        <NavSort scrollY={scrollY} />
         <Cart isOpen={isOpen} toggleOpen={toggleOpen} />
         <InfiniteScroll
           className="mt-[200px] w-full h-full"
