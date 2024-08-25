@@ -11,6 +11,8 @@ import OurMission from "./components/home-components/OurMission";
 import Ftr from "./components/reusables/Ftr";
 import Newsletter from "./components/home-components/Newsletter";
 import { Montserrat } from "next/font/google";
+import logo from "../../public/images/logo.png";
+import Image from "next/image";
 
 const plex = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -63,16 +65,25 @@ export default function Home() {
       </InfiniteScRev> */}
       <OurMission />
       <InfiniteSc>
-        <div className="flex gap-10">NEW</div>
+        <div className="flex gap-10 justify-center items-center">
+          NEW
+          <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
+        </div>
       </InfiniteSc>
       <CategoryCont />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
-        <div className="flex gap-10">OFFERS</div>
+        <div className="flex gap-10">
+          OFFERS{" "}
+          <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
+        </div>
       </InfiniteScRev>
       <CategoryCont />
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
-        <div className="flex gap-10">SALES</div>
+        <div className="flex gap-10">
+          SALES{" "}
+          <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
+        </div>
       </InfiniteSc>
       <CategoryCont />
       {/* <Chatbot /> */}
