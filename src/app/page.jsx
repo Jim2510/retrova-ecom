@@ -72,7 +72,7 @@ export default function Home() {
       </InfiniteSc>
       <CategoryCont />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
-        <div className="flex gap-10">
+        <div className="flex sm:gap-10">
           OFFERS{" "}
           <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
         </div>
@@ -80,7 +80,7 @@ export default function Home() {
       <CategoryCont />
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
-        <div className="flex gap-10">
+        <div className="flex sm:gap-10">
           SALES{" "}
           <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
         </div>

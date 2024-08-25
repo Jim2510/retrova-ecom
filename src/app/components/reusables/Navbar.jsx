@@ -29,6 +29,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
 
   const [openSearch, setOpenSearch] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
+  const [openCategories, setOpenCategories] = useState(false); // State for categories menu
   const [localCart, setLocalCart] = useState({ id: null, lines: [] });
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -50,8 +51,6 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       setSearchResults([]);
     }
   };
-
-  console.log(searchResults);
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -101,6 +100,10 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
+  };
+
+  const toggleCategories = () => {
+    setOpenCategories(!openCategories);
   };
 
   const toggleOpenSearch = () => {
@@ -219,16 +222,6 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
           isSticky ? "mt-0" : "mt-2"
         } font-semibold text-base h-full grid-cols-4 justify-center items-center sm:grid hidden`}
       >
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="group hidden sm:flex justify-center items-center text-center text-xs px-2 py-[0.3rem] bg-tertiary font-bold border-b-4 border-black border-l-0 border-r-[3px] rounded-tl-2xl rounded-br-2xl hover:border-none transition-all ease-in-out"
-        >
-          <motion.button className="rounded-tl-2xl rounded-br-2xl w-full h-full mx-4">
-            NEW
-          </motion.button>
-        </motion.div> */}
         {btnArray.map((btn, index) => (
           <BtnNav urlNav={btn.url} buttonText={btn.title} key={index} />
         ))}
@@ -259,20 +252,57 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             transition={{ duration: 0.6 }}
             className={`left-0 absolute w-[30%] translate-y-1/2 -top-[85px] h-[30vh] ${
               isSticky ? "mt-[80px]" : "mt-[85px]"
-            }  grid grid-rows-5 bg-white/50 backdrop-blur-3xl`}
+            }  grid grid-rows-6 bg-white backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
                 href={btn.url}
                 key={index}
-                className="w-full text-center border-b-[1px] border-black/40 text-sm font-extrabold flex justify-center items-center"
+                className="w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center"
               >
                 {btn.title}
               </Link>
             ))}
+            <div
+              onClick={toggleCategories} // Toggle categories on click
+              className="relative w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center cursor-pointer"
+            >
+              CATEGORIES &#x27A2;
+              <motion.div
+                initial={{ x: "-200%" }}
+                animate={{ x: openCategories ? "50%" : "-200%" }}
+                transition={{ duration: 0.6 }}
+                className="text-xs absolute w-[100px] grid-rows-4 translate-x-1/2 mb-10 left-16 bg-white py-1 grid grid-cols-1"
+              >
+                <Link
+                  href={"/categories/bracelets"}
+                  className="py-3 border-y border-black"
+                >
+                  BRACELETS
+                </Link>
+                <Link
+                  href={"/categories/necklaces"}
+                  className="py-3 border-b border-black"
+                >
+                  NECKLACES
+                </Link>
+                <Link
+                  href={"/categories/rings"}
+                  className="py-3 border-b border-black"
+                >
+                  RINGS
+                </Link>
+                <Link
+                  href={"/categories/earrings"}
+                  className="py-3 border-b border-black"
+                >
+                  EARRINGS
+                </Link>
+              </motion.div>
+            </div>
             <Link
               href="/user"
-              className="w-full text-center border-b-[1px] border-black/40 text-sm font-extrabold flex justify-center items-center"
+              className="w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center"
             >
               USER
             </Link>
