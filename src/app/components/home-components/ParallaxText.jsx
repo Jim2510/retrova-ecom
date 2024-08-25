@@ -66,10 +66,7 @@ export default function ParallaxText({ children, baseVelocity = 50 }) {
     <div className="overflow-hidden whitespace-nowrap">
       <motion.div className="scroller" style={{ x }}>
         {Array.from({ length: 28 }, (_, i) => (
-          <div
-            key={i}
-            className="inline-block px-10 font-extrabold tracking-widest py-2"
-          >
+          <div key={i} className="inline-block px-10 tracking-widest py-2">
             {children}
           </div>
         ))}

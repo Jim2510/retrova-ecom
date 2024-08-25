@@ -2,6 +2,20 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useTransform, wrap } from "framer-motion";
+import { Belanosima } from "next/font/google";
+import { Roboto } from "next/font/google";
+
+const bela = Belanosima({
+  weight: ["400", "600", "700"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
+
+const robo = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
 
 export default function ParallaxTextInv({ children, baseVelocity = 50 }) {
   const baseX = useMotionValue(0);
@@ -46,7 +60,7 @@ export default function ParallaxTextInv({ children, baseVelocity = 50 }) {
         {Array.from({ length: 28 }, (_, i) => (
           <div
             key={i}
-            className=" drop-shadow-2xl inline-block px-10 font-extrabold bg-tertiary py-2"
+            className={`${bela.className} drop-shadow-2xl inline-block px-10 bg-tertiary py-2`}
           >
             {children}
           </div>

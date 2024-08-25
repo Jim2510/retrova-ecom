@@ -14,25 +14,25 @@ import { motion } from "framer-motion";
 export default function Ftr() {
   return (
     <>
-      <div className="relative w-full min-h-[300px] grid grid-cols-5 mt-10 bg-secondary py-14 sm:text-center text-start">
-        <div className="col-span-2 flex flex-col px-4 sm:px-28 py-2 sm:py-5 justify-center items-center ">
+      <div className="relative w-full min-h-[300px] grid grid-cols-5 mt-10 bg-black text-white py-14 sm:text-center text-start">
+        <div className="col-span-2 flex flex-col px-4 sm:px-28 py-2 sm:py-5 justify-center items-center">
           <h3 className="font-semibold tracking-widest  sm:tracking-[1rem] text-base sm:text-xl">
             RETROVA
           </h3>
           <div className="w-full py-2 h-full bg-white my-4 flex flex-col justify-center items-center shadow-2xl">
-            <h2 className="w-full text-center pb-4 text-xs sm:text-sm tracking-normal font-semibold">
-              ISCRIVITI ALLA NEWSLETTER
+            <h2 className="w-full text-center pb-4 text-xs sm:text-sm tracking-normal font-semibold text-black">
+              JOIN OUR NEWSLETTER!
             </h2>
             <form className="flex justify-center sm:flex-row flex-col w-full items-center gap-4 sm:px-0 px-2">
               <input
                 type="text"
                 name=""
                 id="mail"
-                className="focus:outline-none border-2 border-secondary w-full sm:w-[40%] p-1 rounded-lg text-center"
-                placeholder="Inserisci qui la tua mail"
+                className="focus:outline-none border-2 border-black w-full sm:w-[40%] p-1 rounded-lg text-center"
+                placeholder="Your email"
               />
-              <button className=" py-2 px-2 sm:px-4 bg-secondary/70 rounded-lg text-[0.65rem] sm:text-sm font-semibold">
-                ISCRIVITI
+              <button className=" py-2 px-2 sm:px-4 text-black border-2 border-black rounded-lg text-[0.65rem] sm:text-sm font-semibold">
+                SUBSCRIBE
               </button>
             </form>
           </div>
@@ -82,8 +82,15 @@ export default function Ftr() {
             />
           </div>
           <Image src={mastercard} alt="paypal" width={35} height={35} />
-          <Image src={klarna} alt="klarna" width={35} height={35} />
-          <Image src={visa} alt="visa" width={35} height={35} />
+          <div className="overflow-hidden object-cover flex justify-center items-center h-[20px]">
+            <Image
+              src={visa}
+              alt="visa"
+              width={35}
+              height={35}
+              className="bg-white"
+            />
+          </div>
           <Image src={amex} alt="amex" width={35} height={35} />
         </div>
         {/* <div className="border-r-[1px] border-white flex flex-col py-10 justify-between items-center">

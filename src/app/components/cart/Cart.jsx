@@ -82,7 +82,7 @@ export default function Cart({ isOpen, setIsOpen }) {
 
   return (
     <motion.div
-      className="fixed right-0 h-[100%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white/50 backdrop-blur-3xl  shadow-2xl flex flex-col"
+      className="fixed right-0 h-[100%] z-20 bottom-0 w-[80%] sm:w-[40%] bg-white/70 backdrop-blur-3xl  shadow-2xl flex flex-col"
       initial={{ x: "100%" }}
       animate={{ x: isOpen ? 0 : "100%" }}
       transition={{ duration: 0.4 }}

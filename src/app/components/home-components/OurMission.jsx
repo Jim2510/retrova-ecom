@@ -7,6 +7,27 @@ import c2 from "../../../../public/images/c2.png";
 import c3 from "../../../../public/images/c3.png";
 import c4 from "../../../../public/images/c4.png";
 import Link from "next/link";
+import { Belanosima } from "next/font/google";
+import { Roboto } from "next/font/google";
+import { Rubik } from "next/font/google";
+
+const bela = Belanosima({
+  weight: ["400", "600", "700"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
+
+const arch = Rubik({
+  weight: ["400", "600"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
+
+const robo = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
 
 export default function OurMission() {
   const [video, setVideo] = useState(false);
@@ -25,7 +46,9 @@ export default function OurMission() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center h-fit sm:gap-0 gap-0">
+      <div
+        className={`${arch.className} flex flex-col justify-center items-center h-fit sm:gap-0 gap-0`}
+      >
         {/* <div className="w-full h-fit sm:h-[500px] sm:rounded-2xl grid sm:grid-cols-1 grid-cols-1"> */}
         {/* <div className="w-full sm:h-full h-[500px] bg-cover grid sm:grid-cols-4 grid-cols-2 gap-2 px-2 sm:px-10 pb-2 sm:pb-10">
             {collections.map((img, i) => (
@@ -68,7 +91,7 @@ export default function OurMission() {
                 type="video/mp4"
                 className="w-full object-fill h-[400px] sm:h-full z-[10]"
               >
-                <source type="video/mp4" src="/video/pres.mp4" />
+                <source type="video/mp4" src="/video/mainVid.mp4" />
               </motion.video>
             </div>
             <motion.div
@@ -78,9 +101,11 @@ export default function OurMission() {
               viewport={{ once: true }}
               className="order-1 sm:order-2 flex justify-center items-center p-20 text-center sm:h-full h-[500px]"
             >
-              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wider text-slate-800 elegantshadow">
-                ALL OF OUR PRODUCTS ARE DESIGNED TO MEET THE HIGHEST
-                SUSTAINABILITY STANDARDS
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wider text-black">
+                {/* ALL OF OUR PRODUCTS ARE DESIGNED TO MEET THE HIGHEST
+                SUSTAINABILITY STANDARDS */}
+                All of our products are designed to meet the highest
+                sustanibility standard.
               </h2>
             </motion.div>
           </div>

@@ -29,7 +29,7 @@ export default function Prods() {
     const fetchProducts = async () => {
       try {
         const data = await storefront(collectionsQuery);
-        const necklaces = data.data.collections.edges[0].node.products.edges;
+        const necklaces = data.data.collections.edges[3].node.products.edges;
         console.log(data);
         console.log(necklaces);
         setProds(necklaces);

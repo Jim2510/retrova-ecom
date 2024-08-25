@@ -5,12 +5,19 @@ import BtnNav from "./BtnNav";
 import cart from "../../../../public/icons/shopping-cart.png";
 import sort from "../../../../public/icons/menu.png";
 import search from "../../../../public/icons/active.png";
-import logo from "../../../../public/images/logo.png";
+import logo from "../../../../public/images/logo.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { loadCart, searchByName } from "../../../../utilis/query";
 import { storefront } from "../../../../utilis";
+import { Belanosima } from "next/font/google";
+
+const bela = Belanosima({
+  weight: ["400", "600", "700"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
 
 export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const btnArray = [
@@ -109,7 +116,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       initial={{ y: 0 }}
       animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
-      className={`z-[15] top-0 w-full ${bgNav} sm:bg-white grid grid-cols-2 sm:grid-cols-3 justify-between sm:justify-start items-center fixed`}
+      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
     >
       <motion.div
@@ -125,7 +132,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 <Link
                   href={`/prods/${encodeURIComponent(el.node.id)}`}
                   key={el.node.id}
-                  className="w-[400px] px-10"
+                  className="w-[400px] px-10 py-1"
                 >
                   <div
                     key={el.node.id}
@@ -184,7 +191,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <button
           onClick={toggleOpenSearch}
-          className="absolute text-2xl font-bold right-3 focus:outline-none"
+          className="absolute text-xl text-black/50 font-thin right-3 focus:outline-none"
         >
           X
         </button>
@@ -203,16 +210,16 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             alt="logo"
             width={130}
             height={42}
-            className="sm:pl-0 pl-3 sm:w-[150px] sm:flex hidden"
+            className="sm:flex hidden sm:pl-0 pl-3 sm:w-[150px] w-[80px]"
           />
         </motion.div>
       </Link>
       <div
         className={`${
           isSticky ? "mt-0" : "mt-2"
-        } font-semibold text-base h-full grid-cols-5 justify-center items-center -ml-60 sm:grid hidden w-[400px]`}
+        } font-semibold text-base h-full grid-cols-4 justify-center items-center sm:grid hidden`}
       >
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -221,13 +228,13 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
           <motion.button className="rounded-tl-2xl rounded-br-2xl w-full h-full mx-4">
             NEW
           </motion.button>
-        </motion.div>
+        </motion.div> */}
         {btnArray.map((btn, index) => (
           <BtnNav urlNav={btn.url} buttonText={btn.title} key={index} />
         ))}
       </div>
       <div className="flex justify-end sm:pr-10 pr-2 items-center gap-4">
-        <button className="group w-[40px] pt-1 transition-all ease-in-out rounded-lg flex justify-center items-center">
+        <button className="bg-white px-0 p-1 group w-[40px] transition-all ease-in-out rounded-lg flex justify-center items-center">
           <Image
             onClick={toggleOpenSearch}
             src={search}
@@ -237,7 +244,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             className="group-hover:scale-125 transition-all ease-in-out"
           />
         </button>
-        <div className="cursor-pointer group pt-1 w-[40px] h-[35px] transition-all ease-in-out rounded-lg flex sm:hidden justify-center items-center">
+        <div className="px-0 cursor-pointer group bg-white p-1 w-[40px] transition-all ease-in-out rounded-lg flex sm:hidden justify-center items-center">
           <Image
             src={sort}
             alt="menu"
@@ -273,14 +280,14 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <div
           onClick={toggleOpen}
-          className="relative cursor-pointer group w-[40px] h-[35px] transition-all ease-in-out rounded-lg flex pt-1 justify-center items-center"
+          className="relative cursor-pointer group w-[40px] bg-white p-1 px-0 transition-all ease-in-out rounded-lg flex pt-1 justify-center items-center"
         >
           <Image
             alt="cart"
             src={cart}
-            width={25}
-            height={25}
-            className="group-hover:scale-125 transition-all ease-in-out"
+            width={20}
+            height={20}
+            className="group-hover:scale-125 scale-110 transition-all ease-in-out"
           />
           {localCart.lines.length > 0 &&
             localCart.lines[0].node.quantity !== 0 && (
