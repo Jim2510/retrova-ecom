@@ -13,6 +13,7 @@ import Newsletter from "./components/home-components/Newsletter";
 import { Montserrat } from "next/font/google";
 import logo from "../../public/images/logo.png";
 import Image from "next/image";
+import ClrTwo from "./components/home-components/ClrTwo";
 
 const plex = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -70,6 +71,7 @@ export default function Home() {
           <Image src={logo} width={60} height={50} className="ml-5 mb-2" />
         </div>
       </InfiniteSc>
+      <ClrTwo />
       <CategoryCont />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
