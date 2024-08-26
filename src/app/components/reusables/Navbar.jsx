@@ -272,7 +272,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 initial={{ x: "-200%" }}
                 animate={{ x: openCategories ? "50%" : "-200%" }}
                 transition={{ duration: 0.6 }}
-                className="text-xs absolute w-[100px] -z-10  grid-rows-4 translate-x-1/2 mb-8 left-16 bg-white py-1 grid grid-cols-1"
+                className="text-xs absolute w-[100px] grid-rows-4 translate-x-1/2 mb-11 left-16 bg-white grid grid-cols-1"
               >
                 <Link
                   href={"/categories/bracelets"}
