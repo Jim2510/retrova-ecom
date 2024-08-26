@@ -252,20 +252,20 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             transition={{ duration: 0.6 }}
             className={`left-0 absolute w-[30%] translate-y-1/2 -top-[85px] h-[30vh] ${
               isSticky ? "mt-[80px]" : "mt-[85px]"
-            }  grid grid-rows-6 bg-white backdrop-blur-3xl`}
+            }  grid grid-rows-6 bg-white/10 backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
                 href={btn.url}
                 key={index}
-                className="w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center"
+                className="w-full text-center sm:text-sm border-b-[1px] border-black text-xs font-extrabold flex justify-center items-center"
               >
                 {btn.title}
               </Link>
             ))}
             <div
               onClick={toggleCategories} // Toggle categories on click
-              className="relative w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center cursor-pointer"
+              className="relative w-full text-center border-b-[1px] border-black text-xs sm:text-sm font-extrabold flex justify-center bg-white/10 items-center cursor-pointer"
             >
               CATEGORIES &#x27A2;
               <motion.div
@@ -276,25 +276,25 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
               >
                 <Link
                   href={"/categories/bracelets"}
-                  className="py-3 border-y border-black"
+                  className="py-3 border-y border-black backdrop-blur-3xl"
                 >
                   BRACELETS
                 </Link>
                 <Link
                   href={"/categories/necklaces"}
-                  className="py-3 border-b border-black"
+                  className="py-3 border-b border-black backdrop-blur-3xl"
                 >
                   NECKLACES
                 </Link>
                 <Link
                   href={"/categories/rings"}
-                  className="py-3 border-b border-black"
+                  className="py-3 border-b border-black backdrop-blur-3xl"
                 >
                   RINGS
                 </Link>
                 <Link
                   href={"/categories/earrings"}
-                  className="py-3 border-b border-black"
+                  className="py-3 border-b border-black backdrop-blur-3xl"
                 >
                   EARRINGS
                 </Link>
@@ -302,7 +302,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             </div>
             <Link
               href="/user"
-              className="w-full text-center border-b-[1px] border-black text-sm font-extrabold flex justify-center items-center"
+              className="sm:text-sm text-xs w-full text-center border-b-[1px] border-black font-extrabold flex justify-center items-center"
             >
               USER
             </Link>
@@ -310,7 +310,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <div
           onClick={toggleOpen}
-          className="relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center"
+          className=" relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center"
         >
           <Image
             alt="cart"
