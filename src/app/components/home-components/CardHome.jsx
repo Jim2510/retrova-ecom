@@ -30,7 +30,7 @@ export default function CardHome({
               height={430}
               src={img}
               alt="card"
-              className="bg-white group-hover:opacity-0 transition-opacity duration-500 ease-in-out object-contain w-full h-full absolute z-[05]"
+              className="bg-white group-hover:opacity-0 transition-opacity duration-500 ease-in-out object-cover w-full h-full absolute z-[05]"
             />
             {/* Seconda immagine che appare al passaggio del mouse */}
             <Image

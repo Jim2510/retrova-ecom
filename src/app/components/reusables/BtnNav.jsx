@@ -10,7 +10,7 @@ export default function BtnNav({ buttonText, urlNav }) {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="sm:flex hidden text-center text-lg justify-center items-center h-fit "
+        className="sm:flex hidden text-center text-sm justify-center items-center h-fit "
       >
         <Link href={urlNav} className="w-full h-full">
           {buttonText}

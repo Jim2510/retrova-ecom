@@ -14,7 +14,7 @@ import { motion } from "framer-motion";
 export default function Ftr() {
   return (
     <>
-      <div className="relative w-full min-h-[300px] grid grid-cols-5 mt-10 bg-black text-white py-14 sm:text-center text-start">
+      <div className="relative w-full min-h-[300px] grid grid-cols-5 bg-black text-white py-14 sm:text-center text-start">
         <div className="col-span-2 flex flex-col px-4 sm:px-28 py-2 sm:py-5 justify-center items-center">
           <h3 className="font-semibold tracking-widest  sm:tracking-[1rem] text-base sm:text-xl">
             RETROVA

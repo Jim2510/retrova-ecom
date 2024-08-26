@@ -119,7 +119,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       initial={{ y: 0 }}
       animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
-      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
+      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white/30 sm:backdrop-blur-lg grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
     >
       <motion.div
@@ -227,7 +227,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         ))}
       </div>
       <div className="flex justify-end sm:pr-10 pr-2 items-center gap-4">
-        <button className="bg-white px-0 p-1 group w-[40px] transition-all ease-in-out rounded-lg flex justify-center items-center">
+        <button className="bg-white/10 sm:bg-transparent px-0 p-1 group w-[40px] transition-all ease-in-out flex justify-center items-center">
           <Image
             onClick={toggleOpenSearch}
             src={search}
@@ -237,7 +237,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             className="group-hover:scale-125 transition-all ease-in-out"
           />
         </button>
-        <div className="px-0 cursor-pointer group bg-white p-1 w-[40px] transition-all ease-in-out rounded-lg flex sm:hidden justify-center items-center">
+        <div className="px-0 cursor-pointer group bg-white/10 p-1 w-[40px] transition-all ease-in-out flex sm:hidden justify-center items-center">
           <Image
             src={sort}
             alt="menu"
@@ -272,7 +272,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 initial={{ x: "-200%" }}
                 animate={{ x: openCategories ? "50%" : "-200%" }}
                 transition={{ duration: 0.6 }}
-                className="text-xs absolute w-[100px] grid-rows-4 translate-x-1/2 mb-10 left-16 bg-white py-1 grid grid-cols-1"
+                className="text-xs absolute w-[100px] -z-10  grid-rows-4 translate-x-1/2 mb-8 left-16 bg-white py-1 grid grid-cols-1"
               >
                 <Link
                   href={"/categories/bracelets"}
@@ -310,7 +310,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <div
           onClick={toggleOpen}
-          className="relative cursor-pointer group w-[40px] bg-white p-1 px-0 transition-all ease-in-out rounded-lg flex pt-1 justify-center items-center"
+          className="relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center"
         >
           <Image
             alt="cart"

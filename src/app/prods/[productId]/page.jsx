@@ -15,6 +15,7 @@ import left from "../../../../public/icons/left-arrow.png";
 import right from "../../../../public/icons/right-arrow.png";
 import { addToCartMutation } from "../../../../utilis/query";
 import { exit } from "process";
+import { motion } from "framer-motion";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -177,7 +178,6 @@ export default function ProductDetails() {
               ))}
           </div>
         </div>
-
         <div className="w-full h-full flex flex-col sm:mt-0 mt-10 sm:px-0 px-20">
           {prods ? (
             <>
@@ -202,7 +202,7 @@ export default function ProductDetails() {
                 {/* Size buttons here */}
               </div>
               <div className="flex flex-col pb-10">
-                <h3 className="text-emerald-400 text-lg font-bold tracking-wider pb-6">
+                <h3 className="text-emerald-400 text-sm font-bold tracking-wider pb-6">
                   AVAILABLE
                 </h3>
                 <h3>STANDARD INTERNATIONAL SHIPPING (1-4 WEEKS)</h3>
@@ -223,12 +223,23 @@ export default function ProductDetails() {
                 </select>
               </div>
               <div className="w-full px-8 pb-6">
-                <button
+                <motion.button
+                  initial={{
+                    scale: 1,
+                    backgroundColor: "#ffff",
+                    color: "#000",
+                  }} // Stato iniziale
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }} // Stato durante l'hover
+                  transition={{ duration: 0.3 }} // Durata dell'animazione
                   onClick={addProduct}
-                  className="w-full text-sm sm:px-0 px-6 sm:text-2xl bg-tertiary py-2 rounded-2xl font-semibold hover:shadow-[inset_0_-2px_4px_rgba(0,0,0,0.6)] hover:drop-shadow-none transition-all ease-in-out drop-shadow-lg"
+                  className="w-full text-sm sm:px-0 px-6 sm:text-2xl bg-white py-2 rounded-2xl font-semibold border-2 border-black"
                 >
                   ADD TO CART
-                </button>
+                </motion.button>
               </div>
               <div className="w-full flex justify-center items-center pb-6">
                 <Link

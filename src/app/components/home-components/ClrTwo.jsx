@@ -20,7 +20,7 @@ export default function ClrTwo() {
               transformOrigin: "center", // Center the scaling effect
               width: hovered === index ? "200%" : "100%", // Full width when hovered, otherwise default
             }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
             style={{
               transformOrigin: "center", // Ensure transform origin is set to center
               display: "inline-block", // Prevent div from stretching height-wise

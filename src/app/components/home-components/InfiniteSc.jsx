@@ -19,7 +19,7 @@ const robo = Roboto({
 export default function InfiniteSc({ children }) {
   return (
     <div
-      className={`${bela.className} w-full h-[100px] text-6xl flex justify-center items-center`}
+      className={`${bela.className} w-full h-[100px] text-6xl flex justify-center items-center pt-1`}
     >
       <ParallaxText baseVelocity={1}>{children}</ParallaxText>
     </div>

@@ -142,8 +142,8 @@ export default function Prods() {
                   index={item.node.id}
                   key={index}
                   nomeP={item.node.title}
-                  img={item.node.images.edges[0].node.url}
-                  imgHover={item.node.images.edges[1].node.url}
+                  img={item.node.images.edges[1].node.url}
+                  imgHover={item.node.images.edges[0].node.url}
                   info={item.node.productType}
                   prezzo={item.node.priceRange.minVariantPrice.amount}
                   desc={item.node.productType}
