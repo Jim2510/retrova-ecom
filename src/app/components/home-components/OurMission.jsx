@@ -73,7 +73,7 @@ export default function OurMission() {
         {/* <div className="w-full h-[500px] sm:h-full bg-bright bg-cover hidden"></div> */}
         {/* </div> */}
         <div className="w-full h-[700px] rounded-b-[2rem]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-[700px] overflow-hidden">
+          <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-[900px] overflow-hidden">
             <div
               className="relative group sm:order-1 order-2"
               onMouseEnter={toggleVideo}
@@ -89,7 +89,7 @@ export default function OurMission() {
                 muted
                 autoPlay
                 type="video/mp4"
-                className="w-full object-fill h-[700px] sm:h-full z-[10]"
+                className="w-full object-fill h-[900px] sm:h-full z-[10]"
               >
                 <source type="video/mp4" src="/video/mainVid.mp4" />
               </motion.video>
