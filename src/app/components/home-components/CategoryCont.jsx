@@ -24,7 +24,7 @@ export default function CategoryCont() {
   }, []);
   return (
     <>
-      <div className="w-full px-1 border-y-2 border-black">
+      <div className="w-full sm:px-1 border-y-2 border-black">
         <motion.div className="grid grid-cols-2 sm:grid-cols-4 sm:gap-2 sm:px-2">
           {prods.data?.products?.edges?.length > 0 && (
             <CardHome

@@ -65,8 +65,6 @@ export default function Home() {
           />
         </div>
       </InfiniteScRev> */}
-      <OurMission />
-      <ClrTwo />
       <InfiniteSc>
         <div className="flex gap-10 justify-center items-center">
           NEW
@@ -75,7 +73,8 @@ export default function Home() {
       </InfiniteSc>
 
       <CategoryCont />
-      <Bnr />
+      <ClrTwo />
+      <OurMission />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
           OFFERS{" "}
@@ -88,6 +87,7 @@ export default function Home() {
         </div>
       </InfiniteScRev>
       <CategoryCont />
+      <Bnr />
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
         <div className="flex sm:gap-10">

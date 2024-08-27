@@ -7,7 +7,7 @@ export default function ClrTwo() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <div className="w-full h-[200px] overflow-hidden border-y-2 border-black grid grid-cols-4 relative">
+    <div className="w-full h-[200px] overflow-hidden border-b-2 border-black grid grid-cols-4 relative">
       {["bg-orange-400", "bg-green-400", "bg-red-400", "bg-slate-400"].map(
         (bgColor, index) => (
           <motion.div
