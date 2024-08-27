@@ -119,7 +119,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       initial={{ y: 0 }}
       animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
-      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white/30 sm:backdrop-blur-lg grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
+      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white/10 sm:backdrop-blur-lg grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
     >
       <motion.div

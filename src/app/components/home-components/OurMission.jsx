@@ -72,7 +72,7 @@ export default function OurMission() {
           </div> */}
         {/* <div className="w-full h-[500px] sm:h-full bg-bright bg-cover hidden"></div> */}
         {/* </div> */}
-        <div className="w-full h-[] sm:h-[900px] rounded-b-[2rem]">
+        <div className="w-full h-full sm:h-[900px] rounded-b-[2rem]">
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-[900px] overflow-hidden">
             <div
               className="relative group sm:order-1 order-2"
@@ -99,7 +99,7 @@ export default function OurMission() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="order-1 sm:order-2 flex justify-center pt-10 items-center sm:p-20 text-center sm:h-full h-[400px]"
+              className="order-1 sm:order-2 flex justify-center sm:pt-10 items-center sm:p-20 text-center sm:h-full h-[500px]"
             >
               <h2 className="text-2xl sm:text-4xl font-extrabold tracking-wider text-black">
                 {/* ALL OF OUR PRODUCTS ARE DESIGNED TO MEET THE HIGHEST
