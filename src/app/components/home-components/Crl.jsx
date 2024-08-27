@@ -101,6 +101,7 @@ export default function Crl() {
             <video
               autoPlay
               muted
+              playsInline
               loop
               controls={false}
               className="w-full h-full object-cover"

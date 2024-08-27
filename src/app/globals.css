@@ -78,3 +78,12 @@
     transform: rotateY(0deg);
   }
 }
+
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
+}
+
+video {
+  -webkit-playsinline: true;
+  playsinline: true;
+}
