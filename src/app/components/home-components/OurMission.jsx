@@ -72,7 +72,7 @@ export default function OurMission() {
           </div> */}
         {/* <div className="w-full h-[500px] sm:h-full bg-bright bg-cover hidden"></div> */}
         {/* </div> */}
-        <div className="w-full sm:h-[700px] rounded-b-[2rem]">
+        <div className="w-full h-[700px] rounded-b-[2rem]">
           <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-fit sm:h-[700px] overflow-hidden">
             <div
               className="relative group sm:order-1 order-2"
