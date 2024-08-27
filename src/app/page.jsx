@@ -73,8 +73,9 @@ export default function Home() {
       </InfiniteSc>
 
       <CategoryCont />
-      <ClrTwo />
+
       <OurMission />
+      <ClrTwo />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
           OFFERS{" "}

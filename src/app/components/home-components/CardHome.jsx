@@ -20,10 +20,10 @@ export default function CardHome({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="min-h-[400px] sm:px-1"
+        className="min-h-[450px]"
       >
         <Link href={`/prods/${encodeURIComponent(productId)}`}>
-          <div className="bg-white border-b-[2px] border-black z-10 group h-[300px] sm:h-[400px] flex justify-center items-center gap-2 overflow-hidden relative">
+          <div className="bg-white border-b-[2px] border-black z-10 group h-[300px] sm:h-[450px] flex justify-center items-center gap-2 overflow-hidden relative">
             {/* Prima immagine */}
             <Image
               width={400}
