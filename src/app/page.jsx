@@ -42,7 +42,15 @@ export default function Home() {
   //   }, []);
 
   return (
-    <div className=""></div>
+    <div className="text-6xl">
+      TASKS: <br />
+      <ul className="text-3xl ">
+        <li>Cambiare nomi prodotti</li>
+        <li>Cambiare Link con nomi cinesi</li>
+        <li>Creare collezioni categorie</li>
+        <li>Integrare fatturazione elettronica</li>
+      </ul>
+    </div>
     // <main
     //   className={`${plex.className} font-sans min-h-screen flex flex-col items-center relative`}
     // >
