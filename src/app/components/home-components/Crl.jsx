@@ -10,8 +10,8 @@ import b1r from "../../../../public/images/bn1.png";
 import b2r from "../../../../public/images/2r.png";
 import b3r from "../../../../public/images/3r.png";
 
-const desktopImages = [b1, b2, b3];
-const mobileImages = [b1r, b2r, b3r];
+const desktopImages = [b1];
+const mobileImages = [b1r];
 
 export default function Crl() {
   const [currentIndex, setCurrentIndex] = useState(0);
