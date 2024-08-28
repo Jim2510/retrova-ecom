@@ -4,7 +4,6 @@ import x from "../../../../public/twitter (1).png";
 import facebook from "../../../../public/facebook.png";
 import paypal from "../../../../public/icons/card.png";
 import mastercard from "../../../../public/icons/shopping.png";
-import klarna from "../../../../public/icons/symbol.png";
 import visa from "../../../../public/icons/visa.png";
 import amex from "../../../../public/icons/amex.png";
 import Image from "next/image";

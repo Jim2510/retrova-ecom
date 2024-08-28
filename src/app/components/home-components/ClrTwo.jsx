@@ -15,13 +15,13 @@ export default function ClrTwo() {
         setIsAnimating(false); // Chiude il div dopo 5 secondi
         setTimeout(() => {
           setActiveIndex((prevIndex) => (prevIndex + 1) % 4); // Passa al div successivo dopo 2 secondi di pausa
-        }, 2000); // Pausa di 2 secondi
-      }, 5000); // Il div resta aperto per 5 secondi
+        }, 4000); // Pausa di 2 secondi
+      }, 10000); // Il div resta aperto per 5 secondi
     };
 
     animateDiv(); // Avvia l'animazione
 
-    const interval = setInterval(animateDiv, 7000); // 5 secondi aperto + 2 secondi pausa = 7 secondi
+    const interval = setInterval(animateDiv, 14000); // 5 secondi aperto + 2 secondi pausa = 7 secondi
 
     return () => clearInterval(interval); // Pulizia dell'intervallo al dismount del componente
   }, []);

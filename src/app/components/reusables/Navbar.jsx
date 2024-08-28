@@ -35,8 +35,20 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const [localCart, setLocalCart] = useState({ id: null, lines: [] });
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
+  const [imageSrc, setImageSrc] = useState("");
   const isDesktop = useMediaQuery({ minWidth: 768 });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isDesktop) {
+        setImageSrc(logo);
+      } else {
+        setImageSrc(logoMobile);
+      }
+    }, 50); // Delay of 50ms to ensure proper image load without flicker
+
+    return () => clearTimeout(timer);
+  }, [isDesktop]);
 
   const handleSearch = async () => {
     if (searchQuery.trim() === "") return;
@@ -208,12 +220,12 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         className="h-full flex justify-start items-center sm:pl-10 pl-2 overflow-hidden"
       >
         <motion.div
-          initial={{ scale: 1.2 }}
-          animate={{ scale: isSticky ? 1 : 1.2 }}
+          initial={{ scale: 1.2, opacity: 0 }}
+          animate={{ scale: isSticky ? 1 : 1.2, opacity: 1 }}
           transition={{ duration: 0.4 }}
         >
           <Image
-            src={isDesktop ? logo : logoMobile}
+            src={imageSrc}
             alt="logo"
             width={130}
             height={42}

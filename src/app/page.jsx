@@ -75,7 +75,7 @@ export default function Home() {
       <CategoryCont />
 
       <OurMission />
-      <ClrTwo />
+      {/* <ClrTwo /> */}
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
           BEST SELLERS{" "}
@@ -88,9 +88,20 @@ export default function Home() {
         </div>
       </InfiniteScRev>
       <CategoryCont />
+      <InfiniteSc>
+        <div className="flex sm:gap-10">
+          CATEGORIES{" "}
+          <Image
+            src={logo}
+            width={50}
+            height={50}
+            className="ml-5 scale-[1.3] relative bottom-1"
+          />
+        </div>
+      </InfiniteSc>
       <Bnr />
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
-      <InfiniteSc>
+      <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
           SALES{" "}
           <Image
@@ -100,7 +111,7 @@ export default function Home() {
             className="ml-5 scale-[1.3] relative bottom-1"
           />
         </div>
-      </InfiniteSc>
+      </InfiniteScRev>
       <CategoryCont />
       {/* <Chatbot /> */}
       <Ftr />
