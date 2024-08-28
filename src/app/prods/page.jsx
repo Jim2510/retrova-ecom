@@ -99,7 +99,7 @@ export default function Prods() {
 
         {/* Menu Filtri e Ordinamento */}
         <motion.div
-          className="flex justify-between w-full items-center p-4 fixed z-[11]"
+          className="flex md:flex-row justify-between w-full items-center py-4 px-1 fixed z-[11]"
           style={{
             top: scrollY > 50 ? "50px" : "128px", // Cambia l'altezza in base allo scroll
           }}
@@ -107,14 +107,14 @@ export default function Prods() {
           animate={{ top: scrollY > 50 ? "50px" : "128px" }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-fit flex justify-start items-center bg-white rounded-full">
-            <label className="mr-2 font-semibold p-2 rounded-full">
+          <div className="w-fit md:w-fit flex justify-start items-center bg-white rounded-full md:mb-0">
+            <label className="mr-2 font-semibold p-2 rounded-full sm:text-base text-[0.5rem]">
               Filter by Category:
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="p-2 border border-gray-300 rounded-r-full"
+              className="p-2 text-xs md:text-sm border border-gray-300 rounded-r-full"
             >
               <option value="All">All</option>
               <option value="Category1">Category 1</option>
@@ -123,12 +123,14 @@ export default function Prods() {
               {/* Aggiungi qui altre categorie in base ai tuoi dati */}
             </select>
           </div>
-          <div className="flex justify-end items-center bg-white rounded-full">
-            <label className="mr-2 font-semibold p-2">Sort by Price:</label>
+          <div className="w-fit md:w-fit flex justify-end items-center bg-white rounded-full">
+            <label className="mr-2 font-semibold p-2 sm:text-base text-[0.5rem]">
+              Sort by Price:
+            </label>
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="p-2 border border-gray-300 rounded-r-full"
+              className="p-2 text-xs md:text-sm border border-gray-300 rounded-r-full"
             >
               <option value="asc">Low to High</option>
               <option value="desc">High to Low</option>
