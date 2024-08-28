@@ -4,11 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import b1 from "../../../../public/images/banner.png";
-import b2 from "../../../../public/images/2.png";
-import b3 from "../../../../public/images/3.png";
 import b1r from "../../../../public/images/bn1.png";
-import b2r from "../../../../public/images/2r.png";
-import b3r from "../../../../public/images/3r.png";
 
 const desktopImages = [b1];
 const mobileImages = [b1r];

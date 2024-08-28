@@ -1,43 +1,62 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Bnr() {
-  return (
-    <>
-      <div className="w-full h-[450px] bg-white border-y-2 border-black sm:grid-cols-4 text-sm sm:text-4xl grid grid-cols-2 justify-center items-center">
-        <div className="sm:order-1 border-r-2 border-black col-span-1 h-full text-white font-semibold bg-black flex justify-center items-center">
-          <Link
-            href="/categories/bracelets "
-            className="w-full h-full flex items-center justify-center"
-          >
-            BRACELETS
-          </Link>
-        </div>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-        <div className="sm:order-2 order-3 border-r-2 border-black col-span-1 h-full text-black font-semibold bg-white">
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+
+  const items = [
+    {
+      href: "/categories/bracelets",
+      label: "BRACELETS",
+      bgClass: "bg-bracelets",
+    },
+    {
+      href: "/categories/necklaces",
+      label: "NECKLACES",
+      bgClass: "bg-necklaces",
+    },
+    { href: "/categories/earrings", label: "EARRINGS", bgClass: "bg-earrings" },
+    { href: "/categories/rings", label: "RINGS", bgClass: "bg-rings" },
+  ];
+
+  return (
+    <div className="w-full h-[450px] bg-white border-y-2 border-black sm:grid-cols-4 text-sm sm:text-6xl grid grid-cols-2 justify-center items-center">
+      {items.map((item, index) => (
+        <motion.div
+          key={index}
+          className={`sm:order-${
+            index + 1
+          } border-r-2 border-black bg-cover col-span-1 h-full text-black font-extrabold flex justify-center items-center ${
+            item.bgClass
+          }`}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+          initial={{ filter: "blur(0px)" }}
+          animate={{
+            filter:
+              hoveredIndex === null || hoveredIndex === index
+                ? "blur(0px)"
+                : "blur(5px)",
+          }}
+          transition={{ duration: 0.3 }}
+        >
           <Link
-            href="/categories/necklaces "
-            className="w-full h-full flex items-center justify-center"
+            href={item.href}
+            className="w-full h-full flex items-center justify-center drop-shadow-[0_3px_3px_rgba(255,255,255,0.8)]"
           >
-            NECKLACES
+            {item.label}
           </Link>
-        </div>
-        <div className="sm:order-3 order-4 border-r-2 border-black col-span-1 h-full bg-black text-white font-semibold">
-          <Link
-            href="/categories/earrings "
-            className="w-full h-full flex items-center justify-center"
-          >
-            EARRINGS
-          </Link>
-        </div>
-        <div className="sm:order-4 col-span-1 h-full bg-white text-black font-semibold">
-          <Link
-            href="/categories/rings "
-            className="w-full h-full flex items-center justify-center"
-          >
-            RINGS
-          </Link>
-        </div>
-      </div>
-    </>
+        </motion.div>
+      ))}
+    </div>
   );
 }
