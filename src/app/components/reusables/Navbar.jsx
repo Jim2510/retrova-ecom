@@ -6,12 +6,14 @@ import cart from "../../../../public/icons/shopping-cart.png";
 import sort from "../../../../public/icons/menu.png";
 import search from "../../../../public/icons/active.png";
 import logo from "../../../../public/images/logo.svg";
+import logoMobile from "../../../../public/images/logo.png";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { loadCart, searchByName } from "../../../../utilis/query";
 import { storefront } from "../../../../utilis";
 import { Belanosima } from "next/font/google";
+import { useMediaQuery } from "react-responsive";
 
 const bela = Belanosima({
   weight: ["400", "600", "700"],
@@ -33,6 +35,8 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const [localCart, setLocalCart] = useState({ id: null, lines: [] });
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   const handleSearch = async () => {
     if (searchQuery.trim() === "") return;
@@ -209,11 +213,11 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
           transition={{ duration: 0.4 }}
         >
           <Image
-            src={logo}
+            src={isDesktop ? logo : logoMobile}
             alt="logo"
             width={130}
             height={42}
-            className="sm:flex hidden sm:pl-0 pl-3 sm:w-[150px] w-[80px]"
+            className={`flex sm:pl-0 pl-3 sm:w-[150px] w-[60px] sm:h-full h-[50px] sm:pb-0 mb-1`}
           />
         </motion.div>
       </Link>

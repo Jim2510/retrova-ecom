@@ -110,3 +110,73 @@ export const searchByName = ` query searchProducts($title: String!) {
   }
 }
 `;
+
+export const userQuery = `
+query {
+  customer {
+    id
+    firstName
+    lastName
+    email
+    orders(first: 10) {
+      edges {
+        node {
+          id
+          orderNumber
+          totalPrice {
+            amount
+            currencyCode
+          }
+          lineItems(first: 5) {
+            edges {
+              node {
+                title
+                quantity
+                price {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+export const customerCreate = `
+mutation customerCreate($input: CustomerCreateInput!) {
+  customerCreate(input: $input) {
+    customerUserErrors {
+      code
+      field
+      message
+    }
+    customer {
+      id
+      email
+      firstName
+      lastName
+    }
+  }
+}
+
+`;
+
+export const customerAccessTokenCreate = `
+mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
+  customerAccessTokenCreate(input: $input) {
+    customerUserErrors {
+      code
+      field
+      message
+    }
+    customerAccessToken {
+      accessToken
+      expiresAt
+    }
+  }
+}
+`;

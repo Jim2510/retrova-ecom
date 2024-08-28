@@ -78,7 +78,7 @@ export default function Home() {
       <ClrTwo />
       <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
         <div className="flex sm:gap-10">
-          OFFERS{" "}
+          BEST SELLERS{" "}
           <Image
             src={logo}
             width={80}
@@ -92,7 +92,13 @@ export default function Home() {
       <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       <InfiniteSc>
         <div className="flex sm:gap-10">
-          SALES <Image src={logo} width={50} height={50} className="ml-5" />
+          SALES{" "}
+          <Image
+            src={logo}
+            width={50}
+            height={50}
+            className="ml-5 scale-[1.3] relative bottom-1"
+          />
         </div>
       </InfiniteSc>
       <CategoryCont />
