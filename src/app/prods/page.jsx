@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../components/reusables/Navbar";
 import NavSocial from "../components/reusables/NavSocial";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -91,19 +92,29 @@ export default function Prods() {
 
   return (
     <>
-      <div className="w-full flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-2 min-h-screen">
         <NavSocial scrollY={scrollY} />
         <Navbar toggleOpen={toggleOpen} scrollY={scrollY} bgNav={"bg-white"} />
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
 
         {/* Menu Filtri e Ordinamento */}
-        <div className="flex justify-between items-center p-4 mt-32">
-          <div>
-            <label className="mr-2 font-semibold">Filter by Category:</label>
+        <motion.div
+          className="flex justify-between w-full items-center p-4 fixed z-[11]"
+          style={{
+            top: scrollY > 50 ? "50px" : "128px", // Cambia l'altezza in base allo scroll
+          }}
+          initial={{ top: "128px" }}
+          animate={{ top: scrollY > 50 ? "50px" : "128px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="w-fit flex justify-start items-center bg-white rounded-full">
+            <label className="mr-2 font-semibold p-2 rounded-full">
+              Filter by Category:
+            </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border border-gray-300 rounded-r-full"
             >
               <option value="All">All</option>
               <option value="Category1">Category 1</option>
@@ -112,18 +123,18 @@ export default function Prods() {
               {/* Aggiungi qui altre categorie in base ai tuoi dati */}
             </select>
           </div>
-          <div>
-            <label className="mr-2 font-semibold">Sort by Price:</label>
+          <div className="flex justify-end items-center bg-white rounded-full">
+            <label className="mr-2 font-semibold p-2">Sort by Price:</label>
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="p-2 border border-gray-300 rounded"
+              className="p-2 border border-gray-300 rounded-r-full"
             >
               <option value="asc">Low to High</option>
               <option value="desc">High to Low</option>
             </select>
           </div>
-        </div>
+        </motion.div>
 
         <InfiniteScroll
           dataLength={items.length}
@@ -135,7 +146,7 @@ export default function Prods() {
             </p>
           }
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-hidden  mt-32">
             {filteredAndSortedProds.length > 0 &&
               filteredAndSortedProds.map((item, index) => (
                 <CardHome
