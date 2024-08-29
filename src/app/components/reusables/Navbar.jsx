@@ -307,29 +307,31 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "350%" }}
             animate={{ x: openCategories ? "50%" : "350%" }}
             transition={{ duration: 0.6 }}
-            className="font-extrabold text-xs absolute w-[100px] right-[15.6rem] top-[5.85rem] flex"
+            className={`font-extrabold text-xs absolute w-fit right-[9rem] flex  backdrop-blur-3xl ${
+              isSticky ? "top-[5.8rem]" : "top-[6.1rem]"
+            }`}
           >
             <Link
               href={"/categories/bracelets"}
-              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+              className="py-2 px-2 border-b-[1px] border-black"
             >
               BRACELETS
             </Link>
             <Link
               href={"/categories/necklaces"}
-              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+              className="py-2 px-2 border-b-[1px] border-black"
             >
               NECKLACES
             </Link>
             <Link
               href={"/categories/rings"}
-              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+              className="py-2 px-2 border-b-[1px] border-black"
             >
               RINGS
             </Link>
             <Link
               href={"/categories/earrings"}
-              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+              className="py-2 px-2 border-b-[1px] border-black"
             >
               EARRINGS
             </Link>
