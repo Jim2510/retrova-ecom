@@ -1,7 +1,7 @@
 import { storefront } from "../../../utilis";
 
 export const productsQuery = `query Products {
-  products(first: 30) {
+  products(first: 100) {
     edges {
       node {
         title
@@ -79,7 +79,7 @@ export const collectionsQuery = `query MyQuery {
     edges {
       node {
         id
-        products(first: 20) {
+        products(first: 100) {
           edges {
             node {
               id

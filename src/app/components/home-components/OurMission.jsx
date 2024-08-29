@@ -89,7 +89,7 @@ export default function OurMission() {
                 muted
                 autoPlay
                 type="video/mp4"
-                className="w-full object-fill h-[400px] sm:h-full z-[10]"
+                className="w-full object-fill h-[400px] sm:h-full z-[10] border-b-2 border-black"
               >
                 <source type="video/mp4" src="/video/mainVid.mp4" />
               </motion.video>

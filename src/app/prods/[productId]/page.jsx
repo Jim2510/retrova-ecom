@@ -24,6 +24,7 @@ export default function ProductDetails() {
   const [scrollY, setScrollY] = useState(0);
   const [image, setImage] = useState(0);
   const [id, setId] = useState(null);
+  const [variantImg, setVariantImg] = useState({});
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -87,7 +88,8 @@ export default function ProductDetails() {
   };
 
   const handleSelectChange = (event) => {
-    setId(event.target.value); // Aggiorna lo stato `id` con il valore selezionato
+    const selectedId = event.target.value;
+    setId(selectedId); // Aggiorna lo stato `id` con il valore selezionato
     console.log("Selected ID:", event.target.value); // Mostra l'ID selezionato
   };
 
@@ -178,7 +180,7 @@ export default function ProductDetails() {
               ))}
           </div>
         </div>
-        <div className="w-full h-full flex flex-col sm:mt-0 mt-10 sm:px-0 px-20">
+        <div className="w-full h-full flex flex-col sm:mt-0 mt-10 sm:px-0 px-5">
           {prods ? (
             <>
               <div className="flex flex-col pb-6">

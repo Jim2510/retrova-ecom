@@ -35,7 +35,7 @@ export default function Bnr() {
           key={index}
           className={`sm:order-${
             index + 1
-          } border-l-2 border-b-2 sm:border-b-0 border-r-0 sm:border-l-0 sm:border-r-2 border-black bg-cover col-span-1 h-full text-black font-extrabold flex justify-center items-center ${
+          } hover:border-x-0 border-l-2 border-b-2 sm:border-b-0 border-r-0 sm:border-l-0 sm:border-r-2 border-black bg-cover col-span-1 h-full text-black font-extrabold flex justify-center items-center ${
             item.bgClass
           }`}
           onMouseEnter={() => handleMouseEnter(index)}

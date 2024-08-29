@@ -107,7 +107,7 @@ export default function Cart({ isOpen, setIsOpen }) {
               >
                 <div className="px-2 relative flex flex-col justify-center items-center">
                   <Image
-                    src={el.node.merchandise.product.images.edges[0].node.url}
+                    src={el.node.merchandise.image.url}
                     alt="productCart"
                     width={130}
                     height={100}

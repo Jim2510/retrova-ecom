@@ -112,10 +112,10 @@ export default function Faqs() {
             WILL I HAVE TO PAY TAXES/IMPORT DUTIES IN MY COUNTRY?
           </h2>
           <p>
-            Depending on the service requested at checkout MrBeast.Store now
-            offers DDP shipping which means your price now includes duties,
-            taxes and freight. Be sure to select this service for a faster and
-            more convenient purchasing experience.
+            Depending on the service requested at checkout Retrova now offers
+            DDP shipping which means your price now includes duties, taxes and
+            freight. Be sure to select this service for a faster and more
+            convenient purchasing experience.
           </p>
           <p>
             Import duties are taxes collected on imports and some exports by a
@@ -153,9 +153,9 @@ export default function Faqs() {
             contact customer support on thesicilianmarket@gmail.com immediately
             with your order number and correct shipping address. If you fail to
             communicate a shipping address change before your order is shipped
-            you will have to contact the courier to reroute your order.
-            MrBeast.Store is not responsible for shipment to an incorrect
-            address if we are not provided the information prior to dispatch.
+            you will have to contact the courier to reroute your order. Retrova
+            is not responsible for shipment to an incorrect address if we are
+            not provided the information prior to dispatch.
           </p>
           <p>
             If your package fails to be delivered due to an insufficient
@@ -178,9 +178,8 @@ export default function Faqs() {
             CAN I EXCHANGE ITEMS ONCE I’VE PLACED MY ORDER?
           </h2>
           <p>
-            MrBeast.Store now offers exchanges through our return portal
-            providing goods are returned in their original packaging and are
-            unworn.
+            Retrova now offers exchanges through our return portal providing
+            goods are returned in their original packaging and are unworn.
           </p>
           <p>
             Return shipping costs are not included and an additional cost that
@@ -189,7 +188,7 @@ export default function Faqs() {
             footprint.
           </p>
           <h2 className="text-xl font-bold mt-20">
-            DOES THE SICILIAN MARKET SHOP ACCEPT RETURNS?
+            DOES RETROVA SHOP ACCEPT RETURNS?
           </h2>
           <p>
             Returns are accepted through our return portal providing goods are

@@ -30,9 +30,18 @@ export default function Ftr() {
                 className="focus:outline-none border-2 border-black w-full sm:w-[40%] p-1 rounded-lg text-center"
                 placeholder="Your email"
               />
-              <button className="py-2 px-2 sm:px-4 text-black border-2 border-black rounded-lg text-[0.65rem] sm:text-sm font-semibold">
+              <motion.button
+                initial={{ scale: 1, backgroundColor: "#ffff", color: "#000" }} // Stato iniziale
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#000",
+                  color: "#fff",
+                }} // Stato durante l'hover
+                transition={{ duration: 0.3 }}
+                className="py-2 px-2 sm:px-4 text-black border-2 border-black rounded-lg text-[0.65rem] sm:text-sm font-semibold"
+              >
                 SUBSCRIBE
-              </button>
+              </motion.button>
             </form>
           </div>
         </div>

@@ -135,7 +135,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       initial={{ y: 0 }}
       animate={{ y: isSticky ? -0 : 42 }}
       transition={{ duration: 0.6 }}
-      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white/10 sm:backdrop-blur-lg grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
+      className={`z-[15] top-0 w-full ${bgNav} ${bela.className} sm:bg-white/30 sm:backdrop-blur-xl grid grid-cols-2 sm:grid-cols-3 items-center fixed`}
       style={{ height: isSticky ? "55px" : "75px" }}
     >
       <motion.div
@@ -229,7 +229,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             alt="logo"
             width={130}
             height={42}
-            className={`flex sm:pl-0 pl-3 sm:w-[150px] w-[60px] sm:h-full h-[50px] sm:pb-0 mb-1`}
+            className={`flex sm:pl-0 pl-3 sm:w-[150px] w-[60px] sm:h-full h-[50px] sm:pb-0 sm:pt-1 mb-1`}
           />
         </motion.div>
       </Link>

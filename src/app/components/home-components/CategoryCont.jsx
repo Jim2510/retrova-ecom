@@ -5,7 +5,7 @@ import CardHome from "./CardHome";
 import { useEffect, useState } from "react";
 import { storefront } from "../../../../utilis";
 import { productsQuery } from "../../api/getProducts";
-import ScaleLoader from "react-spinners/ScaleLoader"; // Importa il loader
+import PropagateLoader from "react-spinners/PropagateLoader"; // Importa il loader
 
 export default function CategoryCont() {
   const [prods, setProds] = useState([]);
@@ -33,7 +33,7 @@ export default function CategoryCont() {
       <div className="w-full border-y-2 border-black">
         {loading ? (
           <div className="flex justify-center items-center h-64">
-            <ScaleLoader
+            <PropagateLoader
               color={"#000000"}
               loading={loading}
               height={35} // Altezza delle barre

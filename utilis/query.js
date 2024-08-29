@@ -66,25 +66,28 @@ query GetCart( $cartId: ID!) {
               title
               product {
                 title
-                images(first: 1) {
-                    edges {
-                      node {
-                        url
-                      }
+                images(first: 2) {
+                  edges {
+                    node {
+                      url
                     }
                   }
+                }
                 priceRange {
                   minVariantPrice {
                     amount
                   }
                 }
               }
+              image {
+                url
+              }
             }
           }
         }
       }
     }
-  }
+}
 }
 `;
 

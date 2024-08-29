@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/reusables/Navbar";
 import NavSocial from "../../components/reusables/NavSocial";
 import Ftr from "../../components/reusables/Ftr";
+import { motion } from "framer-motion";
 
 export default function Contacts() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,28 +40,37 @@ export default function Contacts() {
                 <input
                   type="text"
                   placeholder="NAME"
-                  className="focus:outline-none border-[1px] border-secondary p-2 text-xl rounded-md focus:border-2 focus:border-black transition-all ease-in-out"
+                  className="focus:outline-none border-[1px] p-2 text-xl rounded-md focus:border-2 border-black transition-all ease-in-out"
                 />
                 <input
                   type="text"
                   placeholder="EMAIL*"
-                  className="focus:outline-none border-[1px] border-secondary p-2 text-xl rounded-md focus:border-2 focus:border-black transition-all ease-in-out"
+                  className="focus:outline-none border-[1px] p-2 text-xl rounded-md focus:border-2 border-black transition-all ease-in-out"
                 />
               </div>
               <input
                 type="text"
                 placeholder="PHONE NUMBER"
-                className="focus:outline-none border-[1px] border-secondary p-2 text-xl rounded-md focus:border-2 focus:border-black transition-all ease-in-out"
+                className="focus:outline-none border-[1px] p-2 text-xl rounded-md focus:border-2 border-black transition-all ease-in-out"
               />
               <textarea
                 placeholder="YOUR MESSAGE"
-                className="focus:outline-none border-[1px] border-secondary p-2 text-xl rounded-md focus:border-2 focus:border-black transition-all ease-in-out"
+                className="focus:outline-none border-[1px] p-2 text-xl rounded-md focus:border-2 border-black transition-all ease-in-out"
               />
             </div>
             <div className="w-full flex justify-center items-center my-auto text-xl font-semibold py-4 ">
-              <button className="w-[20%] rounded-md py-4 bg-secondary">
+              <motion.button
+                initial={{ scale: 1, backgroundColor: "#ffff", color: "#000" }} // Stato iniziale
+                whileHover={{
+                  scale: 1.1,
+                  backgroundColor: "#000",
+                  color: "#fff",
+                }} // Stato durante l'hover
+                transition={{ duration: 0.3 }}
+                className="w-[20%] rounded-full py-2 bg-secondary border-2 border-black"
+              >
                 SEND
-              </button>
+              </motion.button>
             </div>
           </form>
         </div>

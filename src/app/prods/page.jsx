@@ -12,6 +12,7 @@ import Ftr from "../components/reusables/Ftr";
 
 import { storefront } from "../../../utilis";
 import { productsQuery } from "../../app/api/getProducts";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 // Simulate fetching more data
 const fetchMoreData = (currentItems) => {
@@ -27,15 +28,19 @@ export default function Prods() {
   const [prods, setProds] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setIsLoading(true); // Imposta isLoading su true prima del fetch
         const data = await storefront(productsQuery);
         setProds(data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setIsLoading(false); // Imposta isLoading su false dopo il fetch, anche in caso di errore
       }
     };
 
@@ -138,18 +143,24 @@ export default function Prods() {
           </div>
         </motion.div>
 
-        <InfiniteScroll
-          dataLength={items.length}
-          next={fetchData}
-          hasMore={hasMore}
-          endMessage={
-            <p style={{ textAlign: "center" }} className=" pt-10 text-2xl">
-              <b>YOU HAVE SEEN IT ALL</b>
-            </p>
-          }
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-hidden  mt-32">
-            {filteredAndSortedProds.length > 0 &&
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-hidden min-h-screen mt-32">
+          {isLoading
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="flex justify-center items-center h-64"
+                >
+                  <PropagateLoader
+                    color={"#000000"}
+                    loading={true}
+                    height={35}
+                    width={4}
+                    margin={4}
+                    radius={2}
+                  />
+                </div>
+              ))
+            : filteredAndSortedProds.length > 0 &&
               filteredAndSortedProds.map((item, index) => (
                 <CardHome
                   index={item.node.id}
@@ -162,8 +173,8 @@ export default function Prods() {
                   desc={item.node.productType}
                 />
               ))}
-          </div>
-        </InfiniteScroll>
+        </div>
+
         <Ftr />
       </div>
     </>
