@@ -56,8 +56,8 @@ export default function Login() {
 
         <div className="w-full h-full flex justify-center items-center pt-28 drop-shadow-2xl bg-white">
           <div className="w-[85%] h-full flex justify-center items-center bg-black">
-            <div className="w-[45%] h-full flex justify-center items-center border-2 border-black bg-white">
-              <div className="w-[60%] h-[80%] border-black flex justify-center items-center flex-col bg-black backdrop-blur-3xl text-white">
+            <div className="w-full sm:w-[45%] h-full flex justify-center items-center sm:border-2 border-black bg-white">
+              <div className="w-full sm:w-[60%] h-[80%] border-black flex justify-center items-center flex-col bg-black backdrop-blur-3xl text-white">
                 <h2 className="text-4xl font-semibold py-10">LOGIN</h2>
                 <form
                   className="w-[90%] h-full border-2 border-black mb-10 flex-col flex justify-start items-center"
@@ -71,7 +71,10 @@ export default function Login() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <label htmlFor="email" className="font-bold">
+                    <label
+                      htmlFor="email"
+                      className="font-bold  sm:text-base text-xs"
+                    >
                       EMAIL
                     </label>
                   </div>
@@ -83,13 +86,16 @@ export default function Login() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
-                    <label htmlFor="password" className="font-bold">
+                    <label
+                      htmlFor="password"
+                      className="font-bold sm:text-base text-xs"
+                    >
                       PASSWORD
                     </label>
                   </div>
                   <button
                     type="submit"
-                    className="px-4 text-xl border-2 border-white"
+                    className="px-4 sm:text-xl bg-white text-black font-semibold border-2 border-white rounded-full text-base"
                   >
                     LOGIN
                   </button>

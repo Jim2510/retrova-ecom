@@ -368,7 +368,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "140%" }}
             animate={{ x: openUser ? "29%" : "140%" }}
             transition={{ duration: 0.6 }}
-            className={`absolute w-[250px] h-[140px] bg-white top-[3.4rem] right-8 translate-x-1/2`}
+            className={`absolute w-[250px] h-[140px] bg-white top-[3.2rem] right-8 translate-x-1/2`}
           >
             {user ? (
               <div className="flex flex-col justify-center items-center gap-6">
@@ -383,7 +383,14 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 </button>
               </div>
             ) : (
-              <h2>Login</h2>
+              <div className="flex flex-col justify-center items-center gap-6 h-full">
+                <button
+                  href="/login"
+                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                >
+                  Login
+                </button>
+              </div>
             )}
           </motion.div>
         </div>
