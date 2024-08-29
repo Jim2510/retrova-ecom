@@ -1,7 +1,9 @@
-import { storefront } from "../../../../utilis";
-import { customerAccessTokenCreate } from "../../../../utilis/query";
+// pages/api/auth/login/login.js
+import { storefront } from "../../../../../utilis";
+import { customerAccessTokenCreate } from "../../../../../utilis/query";
 
 export async function POST(req) {
+  console.log("Request received"); // Log per confermare la richiesta
   const { email, password } = await req.json();
 
   if (!email || !password) {

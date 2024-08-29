@@ -1,5 +1,5 @@
-import { storefront } from "../../../../utilis";
-import { customerCreate } from "../../../../utilis/query";
+import { storefront } from "../../../../../utilis";
+import { customerCreate } from "../../../../../utilis/query";
 
 export async function POST(req) {
   const { email, password, firstName, lastName } = await req.json();
