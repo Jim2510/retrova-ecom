@@ -5,8 +5,6 @@ import Navbar from "../components/reusables/Navbar";
 import NavSocial from "../components/reusables/NavSocial";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/authSlice";
-import { Provider } from "react-redux";
-import { store } from "../../../store";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -14,7 +12,10 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const loginUser = async (e) => {
-    e.preventDefault(); // Previene il refresh della pagina
+    e.preventDefault();
+
+    console.log("Email:", email); // Debug: Verifica se l'email è corretta
+    console.log("Password:", password); // Debug: Verifica se la password è corretta
 
     const response = await fetch("/api/auth/log", {
       method: "POST",
@@ -26,24 +27,24 @@ export default function Login() {
         password,
       }),
     });
-    console.log(response);
+
+    console.log("Response object:", response); // Debug: Verifica l'oggetto risposta
 
     const data = await response.json();
-
-    console.log(data);
+    console.log("Response data:", data); // Debug: Verifica i dati ricevuti dall'API
 
     if (response.ok) {
+      console.log("Dispatching login action...");
       dispatch(
         login({
           accessToken: data.accessToken,
-          email: data.email,
+          expiresAt: data.expiresAt,
+          user: { email },
         })
       );
-      console.log("User logged in:", data);
-      // Puoi salvare il token e reindirizzare l'utente, o mostrare un messaggio di successo
+      console.log("User logged in:", data); // Debug: Conferma che l'utente è stato loggato
     } else {
-      console.error("Login failed:", data);
-      // Mostra un messaggio di errore all'utente
+      console.error("Login failed:", data); // Debug: Verifica se ci sono errori
     }
   };
 

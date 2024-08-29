@@ -5,6 +5,7 @@ import BtnNav from "./BtnNav";
 import cart from "../../../../public/icons/shopping-cart.png";
 import sort from "../../../../public/icons/menu.png";
 import search from "../../../../public/icons/active.png";
+import useric from "../../../../public/icons/user.png";
 import logo from "../../../../public/images/logo.svg";
 import logoMobile from "../../../../public/images/logo.png";
 import { useEffect, useState } from "react";
@@ -14,6 +15,8 @@ import { loadCart, searchByName } from "../../../../utilis/query";
 import { storefront } from "../../../../utilis";
 import { Belanosima } from "next/font/google";
 import { useMediaQuery } from "react-responsive";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../../../store/authSlice";
 
 const bela = Belanosima({
   weight: ["400", "600", "700"],
@@ -36,7 +39,15 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [imageSrc, setImageSrc] = useState("");
+  const [openUser, setOpenUser] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 768 });
+  const user = useSelector((state) => state.auth.user);
+
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logout());
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -343,6 +354,38 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 </span>
               </div>
             )}
+        </div>
+        <div className="relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center">
+          <Image
+            onClick={() => setOpenUser(!openUser)}
+            alt="user"
+            src={useric}
+            width={20}
+            height={20}
+            className="group-hover:scale-125 transition-all ease-in-out"
+          />
+          <motion.div
+            initial={{ x: "140%" }}
+            animate={{ x: openUser ? "29%" : "140%" }}
+            transition={{ duration: 0.6 }}
+            className={`absolute w-[250px] h-[140px] bg-white top-[3.4rem] right-8 translate-x-1/2`}
+          >
+            {user ? (
+              <div className="flex flex-col justify-center items-center gap-6">
+                <h2 className=" p-2 text-lg font-semibold font-mono">
+                  {user.email}
+                </h2>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <h2>Login</h2>
+            )}
+          </motion.div>
         </div>
       </div>
     </motion.nav>
