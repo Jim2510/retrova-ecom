@@ -5,10 +5,12 @@ import Navbar from "../components/reusables/Navbar";
 import NavSocial from "../components/reusables/NavSocial";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/authSlice";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const loginUser = async (e) => {
@@ -42,6 +44,7 @@ export default function Login() {
           user: { email },
         })
       );
+      router.push("/");
       console.log("User logged in:", data); // Debug: Conferma che l'utente è stato loggato
     } else {
       console.error("Login failed:", data); // Debug: Verifica se ci sono errori

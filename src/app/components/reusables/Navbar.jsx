@@ -277,9 +277,9 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "-140%" }}
             animate={{ x: openMenu ? 0 : "-140%" }}
             transition={{ duration: 0.6 }}
-            className={`left-0 absolute w-[30%] translate-y-1/2 -top-[85px] h-[30vh] ${
+            className={`left-0 absolute w-full translate-y-1/2 -top-7 h-[5vh] ${
               isSticky ? "mt-[80px]" : "mt-[85px]"
-            }  grid grid-rows-6 bg-white/10 backdrop-blur-3xl`}
+            }  flex backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
@@ -292,46 +292,46 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             ))}
             <div
               onClick={toggleCategories} // Toggle categories on click
-              className="relative w-full text-center border-b-[1px] border-black text-xs sm:text-sm font-extrabold flex justify-center bg-white/10 items-center cursor-pointer"
+              className="relative w-full text-center border-b-[1px] border-black text-xs sm:text-sm font-extrabold flex justify-center items-center cursor-pointer"
             >
-              CATEGORIES &#x27A2;
-              <motion.div
-                initial={{ x: "-200%" }}
-                animate={{ x: openCategories ? "50%" : "-200%" }}
-                transition={{ duration: 0.6 }}
-                className="text-xs absolute w-[100px] grid-rows-4 translate-x-1/2 mb-11 left-16 bg-white grid grid-cols-1"
-              >
-                <Link
-                  href={"/categories/bracelets"}
-                  className="py-3 border-y border-black backdrop-blur-3xl"
-                >
-                  BRACELETS
-                </Link>
-                <Link
-                  href={"/categories/necklaces"}
-                  className="py-3 border-b border-black backdrop-blur-3xl"
-                >
-                  NECKLACES
-                </Link>
-                <Link
-                  href={"/categories/rings"}
-                  className="py-3 border-b border-black backdrop-blur-3xl"
-                >
-                  RINGS
-                </Link>
-                <Link
-                  href={"/categories/earrings"}
-                  className="py-3 border-b border-black backdrop-blur-3xl"
-                >
-                  EARRINGS
-                </Link>
-              </motion.div>
+              CATEGORIES
             </div>
             <Link
               href="/user"
               className="sm:text-sm text-xs w-full text-center border-b-[1px] border-black font-extrabold flex justify-center items-center"
             >
               USER
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ x: "350%" }}
+            animate={{ x: openCategories ? "50%" : "350%" }}
+            transition={{ duration: 0.6 }}
+            className="font-extrabold text-xs absolute w-[100px] right-[15.6rem] top-[5.85rem] flex"
+          >
+            <Link
+              href={"/categories/bracelets"}
+              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+            >
+              BRACELETS
+            </Link>
+            <Link
+              href={"/categories/necklaces"}
+              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+            >
+              NECKLACES
+            </Link>
+            <Link
+              href={"/categories/rings"}
+              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+            >
+              RINGS
+            </Link>
+            <Link
+              href={"/categories/earrings"}
+              className="py-2 px-2 backdrop-blur-3xl border-b-[1px] border-black"
+            >
+              EARRINGS
             </Link>
           </motion.div>
         </div>
@@ -384,12 +384,20 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
               </div>
             ) : (
               <div className="flex flex-col justify-center items-center gap-6 h-full">
-                <button
+                <Link
+                  to="/login"
                   href="/login"
                   className="bg-white rounded-full border-2 border-black w-fit px-4"
                 >
                   Login
-                </button>
+                </Link>
+                <Link
+                  to="/register"
+                  href="/register"
+                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                >
+                  Register
+                </Link>
               </div>
             )}
           </motion.div>
