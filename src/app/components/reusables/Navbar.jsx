@@ -223,7 +223,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <button
           onClick={toggleOpenSearch}
-          className="absolute text-xl text-black/50 font-thin right-3 focus:outline-none"
+          className="absolute text-2xl text-black font-semibold right-3 focus:outline-none"
         >
           X
         </button>
@@ -372,13 +372,20 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "140%" }}
             animate={{ x: openUser ? "29%" : "140%" }}
             transition={{ duration: 0.6 }}
-            className={`absolute w-[250px] h-[140px] bg-white rounded-bl-lg ${
+            className={`absolute w-[250px] h-fit bg-white rounded-bl-lg ${
               isSticky ? "top-[2.5rem]" : "top-[3.2rem]"
             }  right-14 sm:right-8 translate-x-1/2`}
           >
             {user ? (
-              <div className="flex flex-col justify-center items-center gap-6 pt-4">
-                <h2 className=" p-2 text-base font-semibold">{user.email}</h2>
+              <div className="flex flex-col justify-center items-center gap-6 py-8">
+                <h2 className="text-base font-semibold">{user.email}</h2>
+                <Link
+                  to="/userOrders"
+                  href="/userOrders"
+                  className="bg-white rounded-full border-2 font-semibold border-black w-fit px-4"
+                >
+                  Order History
+                </Link>
                 <button
                   onClick={handleLogOut}
                   className=" rounded-full border-2 border-black w-fit px-4 font-semibold"

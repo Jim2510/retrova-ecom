@@ -183,3 +183,38 @@ mutation customerAccessTokenCreate($input: CustomerAccessTokenCreateInput!) {
   }
 }
 `;
+
+export const customerOrdersQuery = `
+query customerOrders($customerAccessToken: String!, $first: Int!) {
+  customer(customerAccessToken: $customerAccessToken) {
+    orders(first: $first) {
+      edges {
+        node {
+          id
+          name
+          processedAt
+          fulfillmentStatus
+          totalPriceSet {
+            shopMoney {
+              amount
+              currencyCode
+            }
+          }
+          lineItems(first: 5) {
+            edges {
+              node {
+                title
+                quantity
+                originalTotalPrice {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
