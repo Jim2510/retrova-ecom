@@ -194,12 +194,6 @@ query customerOrders($customerAccessToken: String!, $first: Int!) {
           name
           processedAt
           fulfillmentStatus
-          totalPriceSet {
-            shopMoney {
-              amount
-              currencyCode
-            }
-          }
           lineItems(first: 5) {
             edges {
               node {

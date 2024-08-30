@@ -42,7 +42,7 @@ export default function UserOrders() {
       console.log(result);
 
       if (response.ok) {
-        setOrders(result.orders);
+        setOrders(result.data.data.customer.orders.edges);
       } else {
         console.error("Error fetching orders:", result.error);
         return null;
@@ -63,10 +63,10 @@ export default function UserOrders() {
       <div className="flex flex-col min-h-screen">
         <NavSocial />
         <Navbar toggleOpen={toggleOpen} />
-        <div className="w-[50%] mt-[150px] flex flex-col items-center mx-auto">
+        <div className="w-[80%] text-center sm:w-[50%] mt-[150px] flex flex-col items-center mx-auto">
           <h1 className="font-bold tracking-[1rem] text-6xl">Your Orders</h1>
           <div className="mt-[140px] w-[80%] rounded-lg shadow-xl flex flex-col items-center py-4">
-            {orders.length > 0 ? (
+            {orders.length !== 0 ? (
               orders.map((order) => (
                 <div key={order.node.id}>
                   <h2>{order.node.name}</h2>
@@ -89,7 +89,9 @@ export default function UserOrders() {
                 </div>
               ))
             ) : (
-              <p className="font-semibold text-xl ">No orders found.</p>
+              <div className="w-full py-4">
+                <p className="font-semibold text-xl ">No orders found.</p>
+              </div>
             )}
           </div>
         </div>

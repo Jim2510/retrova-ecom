@@ -26,15 +26,15 @@ export async function POST(req) {
     const data = await storefront(customerOrdersQuery, variables);
     console.log("Storefront response data:", data); // Debug: Verifica i dati ricevuti dalla query
 
-    const orders = data?.data?.customer?.orders?.edges;
+    // const orders = data?.data?.customer?.orders?.edges;
 
-    if (!orders) {
+    if (!data) {
       return new Response(JSON.stringify({ error: "No orders found" }), {
         status: 404,
       });
     }
 
-    return new Response(JSON.stringify({ orders }), {
+    return new Response(JSON.stringify({ data }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",

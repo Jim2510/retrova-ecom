@@ -256,22 +256,22 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         ))}
       </div>
       <div className="flex justify-end sm:pr-10 pr-2 items-center gap-4">
-        <button className="bg-white/10 sm:bg-transparent px-0 p-1 group w-[40px] transition-all ease-in-out flex justify-center items-center">
+        <button className="sm:bg-transparent px-0 p-1 group w-[40px] transition-all ease-in-out flex justify-center items-center">
           <Image
             onClick={toggleOpenSearch}
             src={search}
             alt="search"
-            width={20}
-            height={20}
+            width={25}
+            height={25}
             className="group-hover:scale-125 transition-all ease-in-out"
           />
         </button>
-        <div className="px-0 cursor-pointer group bg-white/10 p-1 w-[40px] transition-all ease-in-out flex sm:hidden justify-center items-center">
+        <div className="px-0 cursor-pointer group p-1 w-[40px] transition-all ease-in-out flex sm:hidden justify-center items-center">
           <Image
             src={sort}
             alt="menu"
-            width={20}
-            height={20}
+            width={25}
+            height={25}
             onClick={toggleMenu}
             className="group-hover:scale-125 transition-all ease-in-out"
           />
@@ -341,13 +341,13 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <div
           onClick={toggleOpen}
-          className=" relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center"
+          className=" relative cursor-pointer group w-[40px] sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center"
         >
           <Image
             alt="cart"
             src={cart}
-            width={20}
-            height={20}
+            width={25}
+            height={25}
             className="group-hover:scale-125 scale-110 transition-all ease-in-out"
           />
           {localCart.lines.length > 0 &&
@@ -359,56 +359,114 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
               </div>
             )}
         </div>
-        <div className="relative cursor-pointer group w-[40px] bg-white/10 sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center">
+        <div className="relative cursor-pointer group w-[40px] sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center">
           <Image
             onClick={() => setOpenUser(!openUser)}
             alt="user"
             src={useric}
-            width={20}
-            height={20}
+            width={25}
+            height={25}
             className="group-hover:scale-125 transition-all ease-in-out"
           />
           <motion.div
             initial={{ x: "140%" }}
             animate={{ x: openUser ? "29%" : "140%" }}
             transition={{ duration: 0.6 }}
-            className={`absolute w-[250px] h-fit bg-white rounded-bl-lg ${
+            className={`absolute w-[250px] h-fit bg-white/70 backdrop-blur-3xl ${
               isSticky ? "top-[2.5rem]" : "top-[3.2rem]"
-            }  right-14 sm:right-8 translate-x-1/2`}
+            }  right-14 sm:right-8 translate-x-1/2 tracking-wider`}
           >
             {user ? (
-              <div className="flex flex-col justify-center items-center gap-6 py-8">
-                <h2 className="text-base font-semibold">{user.email}</h2>
-                <Link
-                  to="/userOrders"
-                  href="/userOrders"
-                  className="bg-white rounded-lg py-1 border-2 font-semibold border-black w-[100px] text-center px-4"
+              <div className="flex flex-col justify-center items-center gap-6 py-8 backdrop-blur-3xl">
+                <h2 className="text-sm font-semibold underline-offset-4 underline">
+                  {user.email.toUpperCase()}
+                </h2>
+                <motion.div
+                  className="rounded-lg w-fit h-fit py-1 "
+                  initial={{
+                    scale: 1,
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }} // Stato iniziale
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }} // Stato durante l'hover
+                  transition={{ duration: 0.3 }}
                 >
-                  Order History
-                </Link>
-                <button
+                  <Link
+                    to="/userOrders"
+                    href="/userOrders"
+                    className="rounded-lg sm:text-base text-sm border-2 font-semibold border-black py-1 text-center px-4"
+                  >
+                    ORDER HISTORY
+                  </Link>
+                </motion.div>
+                <motion.button
+                  initial={{
+                    scale: 1,
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }} // Stato iniziale
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }} // Stato durante l'hover
+                  transition={{ duration: 0.3 }}
                   onClick={handleLogOut}
-                  className=" rounded-lg border-2 border-black w-[100px] text-center py-1 px-4 font-semibold"
+                  className="rounded-lg sm:text-base text-sm border-2 font-semibold border-black py-1 text-center px-4"
                 >
-                  Logout
-                </button>
+                  LOGOUT
+                </motion.button>
               </div>
             ) : (
               <div className="flex flex-col justify-center items-center gap-6 h-full py-8">
-                <Link
-                  to="/login"
-                  href="/login"
-                  className="bg-white rounded-lg py-1 border-2 border-black text-center px-4 w-[100px]"
+                <motion.div
+                  className="rounded-lg w-fit h-fit py-1"
+                  initial={{
+                    scale: 1,
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }} // Stato iniziale
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }} // Stato durante l'hover
+                  transition={{ duration: 0.3 }}
                 >
-                  Login
-                </Link>
-                <Link
-                  to="/register"
-                  href="/register"
-                  className="bg-white rounded-lg py-1 border-2 border-black text-center px-4 w-[100px]"
+                  <Link
+                    to="/login"
+                    href="/login"
+                    className="rounded-lg sm:text-base text-sm border-2 font-semibold border-black py-1 text-center px-4"
+                  >
+                    LOGIN
+                  </Link>
+                </motion.div>
+                <motion.div
+                  className="rounded-lg w-fit h-fit py-1"
+                  initial={{
+                    scale: 1,
+                    backgroundColor: "#fff",
+                    color: "#000",
+                  }} // Stato iniziale
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: "#000",
+                    color: "#fff",
+                  }} // Stato durante l'hover
+                  transition={{ duration: 0.3 }}
                 >
-                  Register
-                </Link>
+                  <Link
+                    to="/register"
+                    href="/register"
+                    className="rounded-lg sm:text-base text-sm border-2 font-semibold border-black py-1 text-center px-4"
+                  >
+                    REGISTER
+                  </Link>
+                </motion.div>
               </div>
             )}
           </motion.div>
