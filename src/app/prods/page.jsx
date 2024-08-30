@@ -9,10 +9,13 @@ import products from "../data/prods"; // Ensure this contains initial data
 import CardHome from "../components/home-components/CardHome";
 import Cart from "../components/cart/Cart";
 import Ftr from "../components/reusables/Ftr";
+import Cookies from "js-cookie";
 
 import { storefront } from "../../../utilis";
 import { productsQuery } from "../../app/api/getProducts";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import { useDispatch } from "react-redux";
+import { login } from "../../../store/authSlice";
 
 // Simulate fetching more data
 const fetchMoreData = (currentItems) => {
@@ -30,17 +33,33 @@ export default function Prods() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [isLoading, setIsLoading] = useState(false);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    const user = Cookies.get("user");
+
+    if (accessToken && user) {
+      dispatch(
+        login({
+          accessToken,
+          user: JSON.parse(user),
+        })
+      );
+    }
+  }, [dispatch]);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setIsLoading(true); // Imposta isLoading su true prima del fetch
+        setIsLoading(true);
         const data = await storefront(productsQuery);
         setProds(data);
         console.log(data);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
-        setIsLoading(false); // Imposta isLoading su false dopo il fetch, anche in caso di errore
+        setIsLoading(false);
       }
     };
 
@@ -125,7 +144,6 @@ export default function Prods() {
               <option value="Category1">Category 1</option>
               <option value="Category2">Category 2</option>
               <option value="Category3">Category 3</option>
-              {/* Aggiungi qui altre categorie in base ai tuoi dati */}
             </select>
           </div>
           <div className="w-fit md:w-fit flex justify-end items-center bg-white rounded-full">

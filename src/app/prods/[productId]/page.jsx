@@ -16,6 +16,9 @@ import right from "../../../../public/icons/right-arrow.png";
 import { addToCartMutation } from "../../../../utilis/query";
 import { exit } from "process";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { login } from "../../../../store/authSlice";
+import Cookies from "js-cookie";
 
 export default function ProductDetails() {
   const { productId } = useParams();
@@ -25,6 +28,22 @@ export default function ProductDetails() {
   const [image, setImage] = useState(0);
   const [id, setId] = useState(null);
   const [variantImg, setVariantImg] = useState({});
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    const user = Cookies.get("user");
+
+    if (accessToken && user) {
+      dispatch(
+        login({
+          accessToken,
+          user: JSON.parse(user),
+        })
+      );
+    }
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchProduct = async () => {

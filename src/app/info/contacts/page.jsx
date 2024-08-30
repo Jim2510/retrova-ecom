@@ -4,10 +4,29 @@ import Navbar from "../../components/reusables/Navbar";
 import NavSocial from "../../components/reusables/NavSocial";
 import Ftr from "../../components/reusables/Ftr";
 import { motion } from "framer-motion";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { login } from "../../../../store/authSlice";
 
 export default function Contacts() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    const user = Cookies.get("user");
+
+    if (accessToken && user) {
+      dispatch(
+        login({
+          accessToken,
+          user: JSON.parse(user),
+        })
+      );
+    }
+  }, [dispatch]);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);

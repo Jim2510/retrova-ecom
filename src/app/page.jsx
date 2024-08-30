@@ -15,6 +15,9 @@ import logo from "../../public/images/logo.png";
 import Image from "next/image";
 import ClrTwo from "./components/home-components/ClrTwo";
 import Bnr from "./components/home-components/Bnr";
+import { useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { login } from "../../store/authSlice";
 
 const plex = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -25,6 +28,22 @@ const plex = Montserrat({
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    const user = Cookies.get("user");
+
+    if (accessToken && user) {
+      dispatch(
+        login({
+          accessToken,
+          user: JSON.parse(user),
+        })
+      );
+    }
+  }, [dispatch]);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);

@@ -6,10 +6,12 @@ import NavSocial from "../components/reusables/NavSocial";
 import { useDispatch } from "react-redux";
 import { login } from "../../../store/authSlice";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -37,6 +39,17 @@ export default function Login() {
 
     if (response.ok) {
       console.log("Dispatching login action...");
+      Cookies.set("accessToken", data.accessToken, {
+        expires: 7, // Numero di giorni prima della scadenza del cookie
+        secure: true, // Assicura che il cookie sia trasmesso solo su connessioni HTTPS
+        sameSite: "Strict", // Impedisce l'invio del cookie con richieste cross-site
+      });
+
+      Cookies.set("user", JSON.stringify({ email }), {
+        expires: 7,
+        secure: true,
+        sameSite: "Strict",
+      });
       dispatch(
         login({
           accessToken: data.accessToken,
@@ -55,50 +68,52 @@ export default function Login() {
     <>
       <div className="w-full h-screen">
         <NavSocial />
-        <Navbar bgNav={"!bg-white"} />
+        {/* <Navbar bgNav={"!bg-white"} /> */}
 
-        <div className="w-full h-full flex justify-center items-center pt-28 drop-shadow-2xl bg-white">
+        <div className="w-full h-full flex justify-center items-center pt-10 drop-shadow-2xl bg-white">
           <div className="w-[85%] h-full flex justify-center items-center bg-black">
             <div className="w-full sm:w-[45%] h-full flex justify-center items-center sm:border-2 border-black bg-white">
               <div className="w-full sm:w-[60%] h-[80%] border-black flex justify-center items-center flex-col bg-black backdrop-blur-3xl text-white">
-                <h2 className="text-4xl font-semibold py-10">LOGIN</h2>
+                <h2 className="text-4xl font-semibold py-10 tracking-[1rem]">
+                  LOGIN
+                </h2>
                 <form
                   className="w-[90%] h-full border-2 border-black mb-10 flex-col flex justify-start items-center"
                   onSubmit={loginUser}
                 >
-                  <div className="flex w-full pt-8 px-2 items-center gap-4">
+                  <div className="grid grid-cols-4 w-full pt-8 px-2 items-center gap-4">
                     <input
                       type="email"
-                      className="border-2 border-black w-full h-12 text-xl px-2 text-black"
+                      className="border-2 border-black w-full h-12 text-xl px-2 text-black col-span-3"
                       placeholder="Email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                     <label
                       htmlFor="email"
-                      className="font-bold  sm:text-base text-xs"
+                      className="font-bold  sm:text-base text-xs col-span-1"
                     >
                       EMAIL
                     </label>
                   </div>
-                  <div className="flex w-full py-8 px-2 items-center gap-4">
+                  <div className="w-full py-8 px-2 items-center gap-4 grid grid-cols-4">
                     <input
                       type="password"
-                      className="border-2 border-black w-full h-12 text-xl px-2 text-black"
+                      className="border-2 border-black w-full h-12 text-xl px-2 text-black col-span-3"
                       placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <label
                       htmlFor="password"
-                      className="font-bold sm:text-base text-xs"
+                      className="font-bold sm:text-base text-xs col-span-1"
                     >
                       PASSWORD
                     </label>
                   </div>
                   <button
                     type="submit"
-                    className="px-4 sm:text-xl bg-white text-black font-semibold border-2 border-white rounded-full text-base"
+                    className="px-4 py-1 sm:text-xl bg-white text-black font-bold border-2 border-white rounded-full text-base"
                   >
                     LOGIN
                   </button>

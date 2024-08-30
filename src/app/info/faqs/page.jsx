@@ -4,6 +4,9 @@ import Navbar from "../../components/reusables/Navbar";
 import NavSocial from "../../components/reusables/NavSocial";
 import Ftr from "../../components/reusables/Ftr";
 import { Montserrat } from "next/font/google";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { login } from "../../../../store/authSlice";
 
 const plex = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -14,6 +17,22 @@ const plex = Montserrat({
 export default function Faqs() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const accessToken = Cookies.get("accessToken");
+    const user = Cookies.get("user");
+
+    if (accessToken && user) {
+      dispatch(
+        login({
+          accessToken,
+          user: JSON.parse(user),
+        })
+      );
+    }
+  }, [dispatch]);
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
