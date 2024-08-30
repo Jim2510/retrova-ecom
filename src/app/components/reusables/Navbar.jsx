@@ -272,7 +272,9 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             alt="menu"
             width={25}
             height={25}
-            onClick={toggleMenu}
+            onClick={() => {
+              toggleMenu(), setOpenCategories(false);
+            }}
             className="group-hover:scale-125 transition-all ease-in-out"
           />
           <motion.div
@@ -306,8 +308,8 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             </Link>
           </motion.div>
           <motion.div
-            initial={{ x: "350%" }}
-            animate={{ x: openCategories ? "50%" : "350%" }}
+            initial={{ x: "150%" }}
+            animate={{ x: openCategories ? "50%" : "150%" }}
             transition={{ duration: 0.6 }}
             className={`font-extrabold text-xs absolute w-fit right-[9rem] flex  backdrop-blur-3xl ${
               isSticky ? "top-[5.8rem]" : "top-[6.1rem]"
