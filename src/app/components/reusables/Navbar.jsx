@@ -141,6 +141,8 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
 
   const isSticky = scrollY > 50;
 
+  console.log(user);
+
   return (
     <motion.nav
       initial={{ y: 0 }}
@@ -370,16 +372,16 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "140%" }}
             animate={{ x: openUser ? "29%" : "140%" }}
             transition={{ duration: 0.6 }}
-            className={`absolute w-[250px] h-[140px] bg-white top-[3.2rem] right-8 translate-x-1/2`}
+            className={`absolute w-[250px] h-[140px] bg-white rounded-bl-lg ${
+              isSticky ? "top-[2.5rem]" : "top-[3.2rem]"
+            }  right-14 sm:right-8 translate-x-1/2`}
           >
             {user ? (
-              <div className="flex flex-col justify-center items-center gap-6">
-                <h2 className=" p-2 text-lg font-semibold font-mono">
-                  {user.email}
-                </h2>
+              <div className="flex flex-col justify-center items-center gap-6 pt-4">
+                <h2 className=" p-2 text-base font-semibold">{user.email}</h2>
                 <button
                   onClick={handleLogOut}
-                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                  className=" rounded-full border-2 border-black w-fit px-4 font-semibold"
                 >
                   Logout
                 </button>
