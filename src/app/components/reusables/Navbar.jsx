@@ -382,30 +382,30 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 <Link
                   to="/userOrders"
                   href="/userOrders"
-                  className="bg-white rounded-full border-2 font-semibold border-black w-fit px-4"
+                  className="bg-white rounded-lg py-1 border-2 font-semibold border-black w-[100px] text-center px-4"
                 >
                   Order History
                 </Link>
                 <button
                   onClick={handleLogOut}
-                  className=" rounded-full border-2 border-black w-fit px-4 font-semibold"
+                  className=" rounded-lg border-2 border-black w-[100px] text-center py-1 px-4 font-semibold"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="flex flex-col justify-center items-center gap-6 h-full">
+              <div className="flex flex-col justify-center items-center gap-6 h-full py-8">
                 <Link
                   to="/login"
                   href="/login"
-                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                  className="bg-white rounded-lg py-1 border-2 border-black text-center px-4 w-[100px]"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
                   href="/register"
-                  className="bg-white rounded-full border-2 border-black w-fit px-4"
+                  className="bg-white rounded-lg py-1 border-2 border-black text-center px-4 w-[100px]"
                 >
                   Register
                 </Link>

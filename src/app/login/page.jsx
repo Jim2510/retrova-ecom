@@ -71,14 +71,14 @@ export default function Login() {
         {/* <Navbar bgNav={"!bg-white"} /> */}
 
         <div className="w-full h-full flex justify-center items-center pt-10 drop-shadow-2xl bg-white">
-          <div className="w-[85%] h-full flex justify-center items-center bg-black">
-            <div className="w-full sm:w-[45%] h-full flex justify-center items-center sm:border-2 border-black bg-white">
-              <div className="w-full sm:w-[60%] h-[80%] border-black flex justify-center items-center flex-col bg-black backdrop-blur-3xl text-white">
+          <div className="w-[85%] h-full flex justify-center items-center bg-white shadow-inner-2xl">
+            <div className="w-full sm:w-[45%] h-full flex justify-center items-center bg-white shadow-2xl">
+              <div className="w-full sm:w-[60%] h-[80%] flex justify-center rounded-xl items-center flex-col shadow-2xl backdrop-blur-3xl text-black">
                 <h2 className="text-4xl font-semibold py-10 tracking-[1rem]">
                   LOGIN
                 </h2>
                 <form
-                  className="w-[90%] h-full border-2 border-black mb-10 flex-col flex justify-start items-center"
+                  className="w-[90%] h-full  mb-10 flex-col flex justify-start items-center"
                   onSubmit={loginUser}
                 >
                   <div className="grid grid-cols-4 w-full pt-8 px-2 items-center gap-4">

@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        "inner-2xl":
+          "inset 0 25px 50px rgba(0, 0, 0, 0.3), inset 0 -5px 10px rgba(0, 0, 0, 0.2)",
+      },
       fontFamily: {
         "ibm-plex-serif": ['"IBM Plex Serif"', "serif"],
       },
