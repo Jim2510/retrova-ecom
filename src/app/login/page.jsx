@@ -73,7 +73,7 @@ export default function Login() {
         <div className="w-full h-full flex justify-center items-center pt-10 drop-shadow-2xl bg-white">
           <div className="w-[85%] h-full flex justify-center items-center bg-white shadow-inner-2xl">
             <div className="w-full sm:w-[45%] h-full flex justify-center items-center bg-white shadow-2xl">
-              <div className="w-full sm:w-[60%] h-[80%] flex justify-center rounded-xl items-center flex-col shadow-2xl backdrop-blur-3xl text-black">
+              <div className="w-full sm:w-[60%] h-full sm:h-[80%] flex justify-center rounded-xl items-center flex-col shadow-2xl backdrop-blur-3xl text-black">
                 <h2 className="text-4xl font-semibold py-10 tracking-[1rem]">
                   LOGIN
                 </h2>
