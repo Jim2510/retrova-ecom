@@ -95,13 +95,15 @@ export default function Ftr() {
           </div>
           <Image src={mastercard} alt="paypal" width={35} height={35} />
           <div className="overflow-hidden object-cover flex justify-center items-center h-[20px]">
-            <Image
-              src={visa}
-              alt="visa"
-              width={35}
-              height={35}
-              className="bg-white"
-            />
+            <Link href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+              <Image
+                src={visa}
+                alt="visa"
+                width={35}
+                height={35}
+                className="bg-white"
+              />
+            </Link>
           </div>
           <Image src={amex} alt="amex" width={35} height={35} />
         </div>
