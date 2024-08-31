@@ -11,7 +11,8 @@ const mobileImages = [b1r];
 
 export default function Crl() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [images, setImages] = useState(desktopImages);
+  const [images, setImages] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Update the images based on the screen width
@@ -21,6 +22,7 @@ export default function Crl() {
       } else {
         setImages(desktopImages);
       }
+      setIsLoaded(true);
     };
 
     // Initial check
