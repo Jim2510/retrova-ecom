@@ -4,6 +4,9 @@ import { useState } from "react";
 import { storefront } from "../../../utilis";
 import Navbar from "../components/reusables/Navbar";
 import NavSocial from "../components/reusables/NavSocial";
+import logo from "../../../public/images/logo.png";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -42,7 +45,12 @@ export default function Register() {
         <NavSocial />
         <Navbar bgNav={"!bg-white"} />
 
-        <div className="relative w-full h-full flex justify-center items-center pt-28 drop-shadow-2xl bg-white">
+        <div className="w-full h-full flex justify-center items-center pt-10 drop-shadow-2xl bg-white">
+          <div className="absolute left-10 top-10">
+            <Link href="/">
+              <Image src={logo} width={100} height={100} alt="Logo" />
+            </Link>
+          </div>
           {registrationComplete ? (
             <div className="absolute top-36 bg-green-400 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 rounded-md shadow-md">
               <p className="text-black text-center">
@@ -50,12 +58,14 @@ export default function Register() {
               </p>
             </div>
           ) : null}
-          <div className="w-[85%] h-full flex justify-center items-center bg-black">
-            <div className="w-full sm:w-[45%] h-full  flex justify-center items-center sm:border-2 border-black bg-white">
-              <div className="w-full sm:w-[60%] h-[80%] border-black flex justify-center items-center flex-col bg-black backdrop-blur-3xl text-white">
-                <h2 className="text-4xl font-semibold py-10">REGISTER</h2>
+          <div className="w-[85%] h-full flex justify-center items-center bg-white shadow-inner-2xl">
+            <div className="w-full sm:w-[45%] h-full flex justify-center items-center bg-white shadow-2xl">
+              <div className="w-full sm:w-[60%] h-full sm:h-[80%] flex justify-center rounded-xl items-center flex-col shadow-2xl backdrop-blur-3xl text-black">
+                <h2 className="text-4xl font-semibold py-10 tracking-[1rem]">
+                  REGISTER
+                </h2>
                 <form
-                  className="w-[90%] h-full border-2 border-black mb-10 flex-col flex justify-start items-center"
+                  className="w-[90%] h-fullmb-10 flex-col flex justify-start items-center"
                   onSubmit={registerUser} // Gestisci l'invio del form
                 >
                   <div className="flex w-full pt-8 px-2 items-center gap-4">

@@ -126,6 +126,12 @@ export default function Login() {
                   >
                     LOGIN
                   </button>
+                  <div className="flex gap-2 py-4">
+                    <h3>Not registered yet?</h3>
+                    <Link className="font-semibold" href="/register">
+                      register now
+                    </Link>
+                  </div>
                 </form>
               </div>
             </div>
