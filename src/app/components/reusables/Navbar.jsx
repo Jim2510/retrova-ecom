@@ -18,9 +18,16 @@ import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../../store/authSlice";
 import { useRouter } from "next/navigation";
+import { Raleway } from "next/font/google";
 import Cookies from "js-cookie";
 
 const bela = Belanosima({
+  weight: ["400", "600", "700"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
+
+const rale = Raleway({
   weight: ["400", "600", "700"],
   fontDisplay: "swap",
   subsets: ["latin"],
@@ -258,7 +265,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
       <div
         className={`${
           isSticky ? "mt-0" : "mt-2"
-        } font-semibold text-base h-full grid-cols-4 justify-center items-center sm:grid hidden`}
+        } font-semibold text-xs sm:text-base h-full grid-cols-4 justify-center items-center sm:grid hidden`}
       >
         {btnArray.map((btn, index) => (
           <BtnNav urlNav={btn.url} buttonText={btn.title} key={index} />
@@ -290,9 +297,9 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "-140%" }}
             animate={{ x: openMenu ? 0 : "-140%" }}
             transition={{ duration: 0.6 }}
-            className={`left-0 absolute w-full translate-y-1/2 -top-7 h-[5vh] ${
-              isSticky ? "mt-[80px]" : "mt-[85px]"
-            }  flex backdrop-blur-3xl`}
+            className={`left-0 bg-white/70 text-xs absolute w-full translate-y-1/2 -top-7 h-[5vh] px-2 ${
+              rale.className
+            } ${isSticky ? "mt-[80px]" : "mt-[85px]"}  flex backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
@@ -309,19 +316,15 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             >
               CATEGORIES
             </div>
-            <Link
-              href="/user"
-              className="sm:text-sm text-xs w-full text-center border-b-[1px] border-black font-extrabold flex justify-center items-center"
-            >
-              USER
-            </Link>
           </motion.div>
           <motion.div
             initial={{ x: "150%" }}
             animate={{ x: openCategories ? "50%" : "150%" }}
             transition={{ duration: 0.6 }}
-            className={`font-extrabold text-xs absolute w-fit right-[9rem] flex  backdrop-blur-3xl ${
-              isSticky ? "top-[5.8rem]" : "top-[6.1rem]"
+            className={` ${
+              rale.className
+            } font-extrabold text-xs bg-white/70 absolute w-fit right-[9.3rem] flex backdrop-blur-3xl ${
+              isSticky ? "top-[5.8rem]" : "top-[6.15rem]"
             }`}
           >
             <Link

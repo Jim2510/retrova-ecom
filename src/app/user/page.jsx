@@ -9,6 +9,13 @@ import { login, logout } from "../../../store/authSlice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Ftr from "../components/reusables/Ftr";
+import { Raleway } from "next/font/google";
+
+const rale = Raleway({
+  weight: ["400", "600", "700"],
+  fontDisplay: "swap",
+  subsets: ["latin"],
+});
 
 export default function UserOrders() {
   const [orders, setOrders] = useState([]);
@@ -73,16 +80,27 @@ export default function UserOrders() {
     router.push("/login");
   };
 
-  console.log(orders);
+  console.log(user);
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className={`flex flex-col min-h-screen ${rale.className}`}>
         <NavSocial />
         <Navbar toggleOpen={toggleOpen} />
-        <div className="w-[80%] text-center sm:w-[50%] mt-[150px] flex flex-col items-center mx-auto min-h-[380px]">
-          <h1 className="font-bold tracking-[1rem] text-6xl"></h1>
-          <div className="mt-[140px] w-[80%] rounded-lg shadow-xl flex flex-col items-center py-4">
+        <div className="w-[85%] text-center sm:w-[50%] mt-[150px] flex flex-col items-start mx-auto min-h-[380px]">
+          <h1 className="font-bold tracking-[0.5rem] text-6xl w-full text-start sm:text-start underline underline-offset-4">
+            ACCOUNT
+          </h1>
+          <button
+            onClick={handleLogOut}
+            className="px-2 font-semibold tracking-wide py-1 border-2 border-black rounded-lg mt-4"
+          >
+            LOGOUT
+          </button>
+          <div className="mt-4 w-[80%] rounded-lg shadow-xl flex flex-col items-start px-4 py-4">
+            <h2 className="font-bold tracking-widest text-xs sm:text-xl">
+              {user ? user.email.toUpperCase() : "User not found"}
+            </h2>
             <h2 className="font-bold tracking-widest text-xs sm:text-xl">
               {user ? user.email.toUpperCase() : "User not found"}
             </h2>
@@ -113,12 +131,6 @@ export default function UserOrders() {
                 <p className="font-semibold text-xl ">No orders found.</p>
               </div>
             )}
-            <button
-              onClick={handleLogOut}
-              className="px-2 font-semibold tracking-wide py-1 border-2 border-black rounded-lg mt-4"
-            >
-              LOGOUT
-            </button>
           </div>
         </div>
         <Ftr />
