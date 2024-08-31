@@ -78,7 +78,7 @@ export default function Home() {
       <Navbar
         toggleOpen={toggleOpen}
         scrollY={scrollY}
-        bgNav={"bg-transparent"}
+        bgNav={"bg-white/70 backdrop-blur-3xl"}
       />
       <Crl />
       <InfiniteSc>

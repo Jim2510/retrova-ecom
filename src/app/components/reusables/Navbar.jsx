@@ -28,7 +28,7 @@ const bela = Belanosima({
 });
 
 const rale = Raleway({
-  weight: ["400", "600", "700"],
+  weight: ["400", "600", "700", "800", "900"],
   fontDisplay: "swap",
   subsets: ["latin"],
 });
@@ -297,9 +297,9 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "-140%" }}
             animate={{ x: openMenu ? 0 : "-140%" }}
             transition={{ duration: 0.6 }}
-            className={`left-0 bg-white/70 text-xs absolute w-full translate-y-1/2 -top-7 h-[5vh] px-2 ${
+            className={`left-0 bg-white/70 text-xs absolute w-full translate-y-1/2 -top-7 h-[5vh] pr-4 ${
               rale.className
-            } ${isSticky ? "mt-[80px]" : "mt-[85px]"}  flex backdrop-blur-3xl`}
+            } ${isSticky ? "mt-[82px]" : "mt-[102px]"}  flex backdrop-blur-3xl`}
           >
             {btnArray.map((btn, index) => (
               <Link
@@ -324,7 +324,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             className={` ${
               rale.className
             } font-extrabold text-xs bg-white/70 absolute w-fit right-[9.3rem] flex backdrop-blur-3xl ${
-              isSticky ? "top-[5.8rem]" : "top-[6.15rem]"
+              isSticky ? "top-[5.97rem]" : "top-[7.18rem]"
             }`}
           >
             <Link
