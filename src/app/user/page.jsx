@@ -84,7 +84,7 @@ export default function UserOrders() {
           <h1 className="font-bold tracking-[1rem] text-6xl"></h1>
           <div className="mt-[140px] w-[80%] rounded-lg shadow-xl flex flex-col items-center py-4">
             <h2 className="font-bold tracking-widest text-xs sm:text-xl">
-              {user.email.toUpperCase()}
+              {user ? user.email.toUpperCase() : "User not found"}
             </h2>
             {orders.length === 0 ? (
               orders.map((order) => (
