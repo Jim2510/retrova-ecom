@@ -23,7 +23,7 @@ export default function CardHome({
         className="min-h-[300px] sm:min-h-[450px]"
       >
         <Link href={`/prods/${encodeURIComponent(productId)}`}>
-          <div className="bg-white border-b-[2px] border-black z-10 group h-[300px] sm:h-[400px] flex justify-center items-center gap-2 overflow-hidden relative">
+          <div className="bg-white z-10 group h-[300px] sm:h-[400px] flex justify-center items-center gap-2 overflow-hidden relative">
             {/* Prima immagine */}
             <Image
               width={400}

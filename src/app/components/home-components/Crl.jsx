@@ -68,7 +68,7 @@ export default function Crl() {
   };
 
   return (
-    <div className="w-full h-screen relative overflow-hidden sm:mt-[7.5rem] border-b-2 border-black">
+    <div className="w-full h-screen relative overflow-hidden sm:mt-[7.5rem] ">
       <motion.div
         className="absolute inset-0 flex"
         style={{ width: "100%", height: "100%" }}

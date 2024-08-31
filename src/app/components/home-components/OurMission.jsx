@@ -47,7 +47,7 @@ export default function OurMission() {
   return (
     <>
       <div
-        className={`${arch.className} flex flex-col justify-center items-center h-[900px] sm:gap-0 gap-0 border-b-2 border-black`}
+        className={`${arch.className} flex flex-col justify-center items-center h-[900px] sm:gap-0 gap-0`}
       >
         {/* <div className="w-full h-fit sm:h-[500px] sm:rounded-2xl grid sm:grid-cols-1 grid-cols-1"> */}
         {/* <div className="w-full sm:h-full h-[500px] bg-cover grid sm:grid-cols-4 grid-cols-2 gap-2 px-2 sm:px-10 pb-2 sm:pb-10">
@@ -89,7 +89,7 @@ export default function OurMission() {
                 muted
                 autoPlay
                 type="video/mp4"
-                className="w-full object-fill h-[400px] sm:h-full z-[10] border-b-2 border-black"
+                className="w-full object-fill h-[400px] sm:h-full z-[10]"
               >
                 <source type="video/mp4" src="/video/mainVid.mp4" />
               </motion.video>
