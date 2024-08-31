@@ -17,6 +17,8 @@ import { Belanosima } from "next/font/google";
 import { useMediaQuery } from "react-responsive";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../../store/authSlice";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const bela = Belanosima({
   weight: ["400", "600", "700"],
@@ -42,11 +44,18 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const [openUser, setOpenUser] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: 768 });
   const user = useSelector((state) => state.auth.user);
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
-  const handleLogOut = () => {
-    dispatch(logout());
+  const handleUserClick = () => {
+    if (router) {
+      if (user) {
+        router.push("/user"); // Se l'utente è loggato, vai alla pagina /user
+      } else {
+        router.push("/login"); // Altrimenti, vai alla pagina /login
+      }
+    }
   };
 
   useEffect(() => {
@@ -363,14 +372,14 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
         </div>
         <div className="relative cursor-pointer group w-[40px] sm:bg-transparent p-1 px-0 transition-all ease-in-out flex pt-1 justify-center items-center">
           <Image
-            onClick={() => setOpenUser(!openUser)}
+            onClick={handleUserClick}
             alt="user"
             src={useric}
             width={25}
             height={25}
             className="group-hover:scale-125 transition-all ease-in-out"
           />
-          <motion.div
+          {/* <motion.div
             initial={{ x: "140%" }}
             animate={{ x: openUser ? "29%" : "140%" }}
             transition={{ duration: 0.6 }}
@@ -471,7 +480,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
                 </motion.div>
               </div>
             )}
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </motion.nav>

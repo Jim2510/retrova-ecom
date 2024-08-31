@@ -7,6 +7,9 @@ import { useDispatch } from "react-redux";
 import { login } from "../../../store/authSlice";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import Image from "next/image";
+import logo from "../../../public/images/logo.png";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -58,6 +61,7 @@ export default function Login() {
         })
       );
       router.push("/");
+      alert("Login completed successfully!");
       console.log("User logged in:", data); // Debug: Conferma che l'utente è stato loggato
     } else {
       console.error("Login failed:", data); // Debug: Verifica se ci sono errori
@@ -71,6 +75,11 @@ export default function Login() {
         {/* <Navbar bgNav={"!bg-white"} /> */}
 
         <div className="w-full h-full flex justify-center items-center pt-10 drop-shadow-2xl bg-white">
+          <div className="absolute left-10 top-10">
+            <Link href="/">
+              <Image src={logo} width={100} height={100} alt="Logo" />
+            </Link>
+          </div>
           <div className="w-[85%] h-full flex justify-center items-center bg-white shadow-inner-2xl">
             <div className="w-full sm:w-[45%] h-full flex justify-center items-center bg-white shadow-2xl">
               <div className="w-full sm:w-[60%] h-full sm:h-[80%] flex justify-center rounded-xl items-center flex-col shadow-2xl backdrop-blur-3xl text-black">
