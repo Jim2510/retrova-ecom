@@ -76,10 +76,10 @@ export default function Crl() {
         style={{ width: "100%", height: "100%" }}
         animate={{ x: `-${currentIndex * 100}%` }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        drag="x"
-        dragElastic={0.1}
-        dragMomentum={false}
-        onDragEnd={handleDragEnd}
+        // drag="x"
+        // dragElastic={0.1}
+        // dragMomentum={false}
+        // onDragEnd={handleDragEnd}
       >
         {images.map((image, index) => (
           <div
