@@ -53,8 +53,6 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
   const user = useSelector((state) => state.auth.user);
   const router = useRouter();
 
-  const dispatch = useDispatch();
-
   const handleUserClick = () => {
     if (router) {
       if (user) {
