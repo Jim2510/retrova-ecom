@@ -32,7 +32,7 @@ export default function Bnr() {
 
   return (
     <>
-      <div className="w-full h-[450px] bg-white border-b-0 border-t-2 sm:border-y-2 sm:grid-cols-4 text-xl sm:text-4xl grid grid-cols-2 justify-center items-center">
+      <div className="w-full h-[450px] bg-white sm:grid-cols-4 text-xl sm:text-4xl grid grid-cols-2 justify-center items-center">
         {items.map((item, index) => (
           <motion.div
             key={index}

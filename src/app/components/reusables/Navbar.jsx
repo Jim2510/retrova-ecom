@@ -295,22 +295,22 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             initial={{ x: "-140%" }}
             animate={{ x: openMenu ? 0 : "-140%" }}
             transition={{ duration: 0.6 }}
-            className={`left-0 bg-white/70 text-xs absolute w-full translate-y-1/2 -top-7 h-[5vh] pr-4 ${
+            className={`left-0 bg-white text-xs absolute w-full translate-y-1/2 -top-7 h-[5vh] ${
               rale.className
-            } ${isSticky ? "mt-[82px]" : "mt-[102px]"}  flex backdrop-blur-3xl`}
+            } ${isSticky ? "mt-[82px]" : "mt-[102px]"}  flex`}
           >
             {btnArray.map((btn, index) => (
               <Link
                 href={btn.url}
                 key={index}
-                className="w-full text-center sm:text-sm border-b-[1px] border-black text-xs font-extrabold flex justify-center items-center"
+                className={`w-full text-center sm:text-sm border-b-[1px] border-black text-xs font-extrabold flex justify-center items-center`}
               >
                 {btn.title}
               </Link>
             ))}
             <div
               onClick={toggleCategories} // Toggle categories on click
-              className="relative w-full text-center border-b-[1px] border-black text-xs sm:text-sm font-extrabold flex justify-center items-center cursor-pointer"
+              className="relative w-full text-center border-b-[1px] border-black text-xs sm:text-sm font-extrabold flex justify-center items-center cursor-pointer pr-4"
             >
               CATEGORIES
             </div>
@@ -321,7 +321,7 @@ export default function Navbar({ toggleOpen, scrollY, bgNav }) {
             transition={{ duration: 0.6 }}
             className={` ${
               rale.className
-            } font-extrabold text-xs bg-white/70 absolute w-fit right-[9.3rem] flex backdrop-blur-3xl ${
+            } font-extrabold text-xs bg-white absolute w-fit right-[9.3rem] flex ${
               isSticky ? "top-[5.97rem]" : "top-[7.18rem]"
             }`}
           >

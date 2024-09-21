@@ -218,7 +218,7 @@ export default function ProductDetails() {
                 alt="product"
               />
             </AnimatePresence>
-            <Image
+            {/* <Image
               src={left}
               className="absolute top-[50%] left-5 cursor-pointer hidden sm:block" // Nasconde le frecce sui dispositivi mobili
               onClick={prevImg}
@@ -233,7 +233,7 @@ export default function ProductDetails() {
               width={20}
               height={20}
               alt="next"
-            />
+            /> */}
           </motion.div>
           <div className="grid-cols-5 grid gap-2">
             {prods &&
@@ -285,7 +285,7 @@ export default function ProductDetails() {
                     color: "#000",
                   }}
                   whileHover={{
-                    scale: 1.1,
+                    scale: 1.05,
                     backgroundColor: "#000",
                     color: "#fff",
                   }}

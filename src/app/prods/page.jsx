@@ -138,7 +138,7 @@ export default function Prods() {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="p-2 text-xs md:text-sm border border-gray-300 rounded-r-full"
+              className="p-2 text-xs md:text-sm rounded-r-full focus:outline-none"
             >
               <option value="All">All</option>
               <option value="Category1">Category 1</option>
@@ -153,7 +153,7 @@ export default function Prods() {
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="p-2 text-xs md:text-sm border border-gray-300 rounded-r-full"
+              className="p-2 text-xs md:text-sm focus:outline-none rounded-r-full"
             >
               <option value="asc">Low to High</option>
               <option value="desc">High to Low</option>
