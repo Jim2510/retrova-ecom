@@ -61,7 +61,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className=""></div>
+    // <div className=""></div>
     // <div className="text-6xl">
     //   TASKS: <br />
     //   <ul className="text-3xl">
@@ -71,70 +71,70 @@ export default function Home() {
     //     <li>Integrare fatturazione elettronica</li>
     //   </ul>
     // </div>
-    // <main
-    //   className={`${plex.className} font-sans min-h-screen flex flex-col items-center relative`}
-    // >
-    //   <Newsletter />
-    //   <NavSocial scrollY={scrollY} />
-    //   <Navbar
-    //     toggleOpen={toggleOpen}
-    //     scrollY={scrollY}
-    //     bgNav={"bg-white/70 backdrop-blur-3xl"}
-    //   />
-    //   <div
-    //     className="h-full w-full flex flex-col items-center relative"
-    //     onClick={() => setIsOpen(false)}
-    //   >
-    //     <Crl />
-    //     <InfiniteSc>
-    //       <div className="flex gap-10 justify-center items-center">
-    //         NEW
-    //         <Image src={logo} width={80} height={50} className="ml-5 mb-2" />
-    //       </div>
-    //     </InfiniteSc>
+    <main
+      className={`${plex.className} font-sans min-h-screen flex flex-col items-center relative`}
+    >
+      <Newsletter />
+      <NavSocial scrollY={scrollY} />
+      <Navbar
+        toggleOpen={toggleOpen}
+        scrollY={scrollY}
+        bgNav={"bg-white/70 backdrop-blur-3xl"}
+      />
+      <div
+        className="h-full w-full flex flex-col items-center relative"
+        onClick={() => setIsOpen(false)}
+      >
+        <Crl />
+        <InfiniteSc>
+          <div className="flex gap-10 justify-center items-center">
+            NEW
+            <Image src={logo} width={80} height={50} className="ml-5 mb-2" />
+          </div>
+        </InfiniteSc>
 
-    //     <CategoryCont />
+        <CategoryCont />
 
-    //     <OurMission />
-    //     <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
-    //       <div className="flex sm:gap-10">
-    //         BEST SELLERS{" "}
-    //         <Image
-    //           src={logo}
-    //           width={80}
-    //           height={50}
-    //           className="sm:ml-5 relative bottom-3"
-    //         />
-    //       </div>
-    //     </InfiniteScRev>
-    //     <CategoryCont />
-    //     <InfiniteSc>
-    //       <div className="flex sm:gap-10">
-    //         CATEGORIES{" "}
-    //         <Image
-    //           src={logo}
-    //           width={50}
-    //           height={50}
-    //           className="ml-5 scale-[1.3] relative bottom-1"
-    //         />
-    //       </div>
-    //     </InfiniteSc>
-    //     <Bnr />
-    //     <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
-    //     <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
-    //       <div className="flex sm:gap-10">
-    //         SALES{" "}
-    //         <Image
-    //           src={logo}
-    //           width={50}
-    //           height={50}
-    //           className="ml-5 scale-[1.3] relative bottom-1"
-    //         />
-    //       </div>
-    //     </InfiniteScRev>
-    //     <CategoryCont />
-    //     <Ftr />
-    //   </div>
-    // </main>
+        <OurMission />
+        <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
+          <div className="flex sm:gap-10">
+            BEST SELLERS{" "}
+            <Image
+              src={logo}
+              width={80}
+              height={50}
+              className="sm:ml-5 relative bottom-3"
+            />
+          </div>
+        </InfiniteScRev>
+        <CategoryCont />
+        <InfiniteSc>
+          <div className="flex sm:gap-10">
+            CATEGORIES{" "}
+            <Image
+              src={logo}
+              width={50}
+              height={50}
+              className="ml-5 scale-[1.3] relative bottom-1"
+            />
+          </div>
+        </InfiniteSc>
+        <Bnr />
+        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
+        <InfiniteScRev clr={"bg-transparent"} txt={"text-black"}>
+          <div className="flex sm:gap-10">
+            SALES{" "}
+            <Image
+              src={logo}
+              width={50}
+              height={50}
+              className="ml-5 scale-[1.3] relative bottom-1"
+            />
+          </div>
+        </InfiniteScRev>
+        <CategoryCont />
+        <Ftr />
+      </div>
+    </main>
   );
 }
